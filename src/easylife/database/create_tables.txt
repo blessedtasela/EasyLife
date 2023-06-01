@@ -1,0 +1,3 @@
+USE easylife;
+
+CREATE TABLE customer(customerId INT PRIMARY KEY, firstName VARCHAR(50), lastName VARCHAR(50), gender VARCHAR(10), phone VARCHAR(15), email VARCHAR(15), image VARCHAR(30), country VARCHAR(20), state VARCHAR(15), address TEXT, privilege VARCHAR(10));
