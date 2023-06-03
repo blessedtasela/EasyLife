@@ -6,7 +6,6 @@
 package easylife.EasyLifeUI;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,8 +26,7 @@ public class dbConnection {
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             return connection;
         } catch (ClassNotFoundException | SQLException exception) {
-//           login log = new login();
-//            log.invalidLogin();
+       
             System.out.println("Error whhile coonecting to database. please try again");
             return null;
         }
