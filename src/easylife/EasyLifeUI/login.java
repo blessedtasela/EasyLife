@@ -382,7 +382,7 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
                     feedback fedform = new feedback();
-                    fedform.setTitle("Create Account");
+                    fedform.setTitle("Feedback");
                     fedform.setVisible(true);
     }//GEN-LAST:event_jButtonContactFormActionPerformed
 
@@ -438,7 +438,7 @@ public class login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "You are successfully logged in. Click OK to continue", "Welcome", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                     homepage hm = new homepage();
-                    hm.setTitle("HomePage");
+                    hm.setTitle("Dashboard");
                     hm.setVisible(true);
 
                 } else {
