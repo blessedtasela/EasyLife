@@ -412,14 +412,14 @@ public class registerUser extends javax.swing.JFrame {
         String email = tfEmail.getText();
         String country = tfCountry.getText();
         String state = tfState.getText();
-        String adress = tfAdress.getText();
+        String Adress = tfAdress.getText();
         String username = tfUsername.getText();
         String password = tfPassword.getText();
 
-        if (fname.isEmpty() || Lname.isEmpty() || gender.isEmpty() || phone.isEmpty() || email.isEmpty() || country.isEmpty() || state.isEmpty() || adress.isEmpty() || username.isEmpty() || password.isEmpty()) {
+        if (fname.isEmpty() || Lname.isEmpty() || gender.isEmpty() || phone.isEmpty() || email.isEmpty() || country.isEmpty() || state.isEmpty() || Adress.isEmpty() || username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill up the from properly.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            registerUser(fname, Lname, gender, phone, email, country, state, adress, username, password);
+            registerUser(fname, Lname, gender, phone, email, country, state,Adress , username, password);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
