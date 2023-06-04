@@ -26,8 +26,7 @@ public class dbConnection {
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             return connection;
         } catch (ClassNotFoundException | SQLException exception) {
-       
-            System.out.println("Error whhile coonecting to database. please try again");
+            System.out.println("Error whhile connecting to database. please try again");
             return null;
         }
     }

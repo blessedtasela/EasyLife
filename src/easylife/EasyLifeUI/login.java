@@ -398,7 +398,6 @@ public class login extends javax.swing.JFrame {
                 statement.setString(1, username);
                 statement.setString(2, password);
                 ResultSet result = statement.executeQuery();
-                System.out.println("Login: " + result);
 
                 if (result.next()) {
                     System.out.println("Logged in");
@@ -409,7 +408,7 @@ public class login extends javax.swing.JFrame {
                     hm.setVisible(true);
 
                 } else {
-                    System.out.println("inavlid login");
+                    System.out.println("Login details; ");
                     System.out.println("username: " + username + "\n" + "password: " + password);
                     System.out.println("login failed due to invalid credentials");
                     JOptionPane.showMessageDialog(this, "invalid details. Please input correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
@@ -431,4 +430,5 @@ public class login extends javax.swing.JFrame {
 
         }
     }
+    
 }
