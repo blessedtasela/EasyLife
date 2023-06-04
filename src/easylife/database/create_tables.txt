@@ -1,6 +1,11 @@
 use easylife;
 CREATE TABLE customer(id INT PRIMARY KEY AUTO_INCREMENT, fname VARCHAR(50), Lname VARCHAR(50), gender VARCHAR(10), phone VARCHAR(15), email VARCHAR(50), country VARCHAR(20), state VARCHAR(15), address varchar(100),username varchar(50),password varchar(50) );
 
-use easylife;
-CREATE TABLE login(loginId INT PRIMARY KEY AUTO_INCREMENT, customerId INT NOT NULL REFERENCES customer(customerId), username VARCHAR(30) NOT NULL, password VARCHAR(30) NOT NULL);
-
+USE easylife;
+CREATE TABLE login (
+  loginId INT PRIMARY KEY AUTO_INCREMENT,
+  customerId INT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  password VARCHAR(30) NOT NULL,
+  FOREIGN KEY (customerId) REFERENCES customer(customerId)
+);
