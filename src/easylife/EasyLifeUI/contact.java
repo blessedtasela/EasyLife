@@ -18,11 +18,18 @@ import javax.swing.JTextArea;
 
 public class contact extends javax.swing.JFrame {
 
-    /**
-     * Creates new form contact
-     */
+     dbConnection connect;
+     
     public contact() {
         initComponents();
+         connect = new dbConnection();
+
+        if (connect == null) {
+            System.out.println("Error in connection. Can't connect to database");
+        } else {
+            System.out.println("Connection successful");
+        } 
+        
         //add placeholder style
        addPlaceholderStyle(tfUser);
        addPlaceholderStyle(tfEmail);
