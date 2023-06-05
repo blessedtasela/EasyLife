@@ -1,10 +1,13 @@
 
 package easylife.EasyLifeUI;
 
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 public class login extends javax.swing.JFrame {
 
@@ -18,8 +21,27 @@ public class login extends javax.swing.JFrame {
             System.out.println("Error in connection. Can't connect to database");
         } else {
             System.out.println("Connection successful");
-        }
+        } 
+        
+         addPlaceholderStyle(tfUsername);
+         addPlaceholderStyle(tfPassword);
     }
+    
+    public void addPlaceholderStyle(JTextField textField){
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.ITALIC);
+        textField.setFont(font);
+        textField.setForeground(Color.gray);//font color
+        
+    }
+
+       public void removePlaceholderStyle(JTextField textField){
+           Font font = textField.getFont();
+        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+        textField.setFont(font);
+        textField.setForeground(Color.black);//font color
+    }
+   
 
 
     @SuppressWarnings("unchecked")
@@ -33,8 +55,8 @@ public class login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabelUserLabel = new javax.swing.JLabel();
-        jTextFieldUsername = new javax.swing.JTextField();
-        jPasswordFieldPassword = new javax.swing.JPasswordField();
+        tfUsername = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -45,6 +67,11 @@ public class login extends javax.swing.JFrame {
         jButtonRegisterUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(29, 101, 166));
 
@@ -61,7 +88,7 @@ public class login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(jlabelLoginLogo))
         );
         jPanel5Layout.setVerticalGroup(
@@ -81,20 +108,43 @@ public class login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel1FocusGained(evt);
+            }
+        });
 
         jLabelUserLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelUserLabel.setText("username");
 
-        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+        tfUsername.setText("Username");
+        tfUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfUsernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfUsernameFocusLost(evt);
+            }
+        });
+        tfUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsernameActionPerformed(evt);
+                tfUsernameActionPerformed(evt);
             }
         });
 
-        jPasswordFieldPassword.setText("jPasswordField1");
-        jPasswordFieldPassword.addActionListener(new java.awt.event.ActionListener() {
+        tfPassword.setText("Password");
+        tfPassword.setEchoChar('\u0000');
+        tfPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfPasswordFocusLost(evt);
+            }
+        });
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldPasswordActionPerformed(evt);
+                tfPasswordActionPerformed(evt);
             }
         });
 
@@ -222,8 +272,8 @@ public class login extends javax.swing.JFrame {
                                     .addComponent(jLabelUserLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldUsername))))
+                                    .addComponent(tfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(tfUsername))))
                         .addGap(97, 97, 97))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 5, Short.MAX_VALUE)
@@ -240,13 +290,15 @@ public class login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelUserLabel)))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelPasswordLabel))
-                .addGap(8, 8, 8)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelPasswordLabel)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addGap(10, 10, 10)
                 .addComponent(jButtonLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,12 +312,15 @@ public class login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabeldescription, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabeldescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,9 +328,9 @@ public class login extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabeldescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -284,9 +339,9 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
+    private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsernameActionPerformed
+    }//GEN-LAST:event_tfUsernameActionPerformed
 
     private void authenticate(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authenticate
         // TODO add your handling code here:
@@ -294,8 +349,8 @@ public class login extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        String username = jTextFieldUsername.getText();
-        String password = String.valueOf(jPasswordFieldPassword.getPassword());
+        String username = tfUsername.getText();
+        String password = String.valueOf(tfPassword.getPassword());
 
         if (username.isEmpty() && password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "username and password cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
@@ -326,9 +381,9 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonPasswordRecoveryActionPerformed
 
-    private void jPasswordFieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldPasswordActionPerformed
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldPasswordActionPerformed
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     private void jButtonPasswordRecoveryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonPasswordRecoveryMouseClicked
         // TODO add your handling code here:
@@ -354,6 +409,51 @@ public class login extends javax.swing.JFrame {
         fedform.setTitle("Feedback");
         fedform.setVisible(true);
     }//GEN-LAST:event_jButtonContactFormActionPerformed
+
+    private void tfUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusGained
+          if(tfUsername.getText().equals("Username")){
+           tfUsername.setText(null);
+           tfUsername.requestFocus();
+           //remove placeholder style
+           removePlaceholderStyle(tfUsername);
+       }
+    }//GEN-LAST:event_tfUsernameFocusGained
+
+    private void tfUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusLost
+         if(tfUsername.getText().length()==0){
+      //add placeholder style
+      addPlaceholderStyle(tfUsername);
+      tfUsername.setText("Username");
+      }
+    }//GEN-LAST:event_tfUsernameFocusLost
+
+    private void tfPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusGained
+        if(tfPassword.getText().equals("Password")){
+        tfPassword.setText(null);
+        tfPassword.requestFocus();
+        //set password character
+        tfPassword.setEchoChar('*');
+        //remove placeholder style
+        removePlaceholderStyle(tfPassword);
+        
+        }
+    }//GEN-LAST:event_tfPasswordFocusGained
+
+    private void tfPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusLost
+        if(tfPassword.getText().length()==0){
+        addPlaceholderStyle(tfPassword);
+        tfPassword.setText("Password");
+        tfPassword.setEchoChar('\u0000');
+        }
+    }//GEN-LAST:event_tfPasswordFocusLost
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+     
+    }//GEN-LAST:event_formFocusGained
+
+    private void jPanel1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusGained
+        this.requestFocusInWindow();
+    }//GEN-LAST:event_jPanel1FocusGained
 
     /**
      * @param args the command line arguments
@@ -384,9 +484,9 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordFieldPassword;
-    private javax.swing.JTextField jTextFieldUsername;
     private javax.swing.JLabel jlabelLoginLogo;
+    private javax.swing.JPasswordField tfPassword;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 
     private void userLogin(String username, String password) throws ClassNotFoundException {
