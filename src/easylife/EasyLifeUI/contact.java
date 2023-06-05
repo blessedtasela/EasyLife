@@ -46,7 +46,7 @@ public class contact extends javax.swing.JFrame {
     }
 
        public void removePlaceholderStyle(JTextField textField){
-           Font font = textField.getFont();
+        Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN|Font.BOLD);
         textField.setFont(font);
         textField.setForeground(Color.black);//font color
@@ -234,6 +234,9 @@ public class contact extends javax.swing.JFrame {
                 tfUser.setText("");
                 tfEmail.setText("");
                 taMessage.setText("");
+                
+                
+                
         
        
     }//GEN-LAST:event_btnSubmitActionPerformed

@@ -374,7 +374,7 @@ public class login extends javax.swing.JFrame {
         if (dbconn != null) {
             dispose();
             passwordRecovery pwd = new passwordRecovery();
-//        pwd.setTitle("Recover Password");
+           //pwd.setTitle("Recover Password");
             pwd.setVisible(true);
         } else {
             System.out.println("not working");
@@ -512,6 +512,8 @@ public class login extends javax.swing.JFrame {
                     System.out.println("username: " + username + "\n" + "password: " + password);
                     System.out.println("login failed due to invalid credentials");
                     JOptionPane.showMessageDialog(this, "invalid details. Please input correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
+                    tfUsername.setText("");
+                    tfPassword.setText("");
 
                 }
             } catch (SQLException ex) {
