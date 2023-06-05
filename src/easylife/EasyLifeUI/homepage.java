@@ -150,6 +150,11 @@ public class homepage extends javax.swing.JFrame {
         jLabelProducts.setForeground(new java.awt.Color(242, 161, 4));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel3FocusGained(evt);
+            }
+        });
 
         jButtonProducts.setBackground(new java.awt.Color(204, 204, 204));
         jButtonProducts.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -505,6 +510,10 @@ public class homepage extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jButtonProductsMouseClicked
+
+    private void jPanel3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel3FocusGained
+        this.requestFocusInWindow();
+    }//GEN-LAST:event_jPanel3FocusGained
 
     /**
      * @param args the command line arguments
