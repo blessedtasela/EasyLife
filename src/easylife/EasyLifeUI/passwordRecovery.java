@@ -237,7 +237,7 @@ public class passwordRecovery extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf1ActionPerformed
 
-<<<<<<< HEAD
+
     private void tf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf2ActionPerformed
@@ -250,8 +250,6 @@ public class passwordRecovery extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf4ActionPerformed
 
-=======
->>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
     /**
      * @param args the command line arguments
      */
