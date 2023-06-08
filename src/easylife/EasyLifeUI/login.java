@@ -217,6 +217,7 @@ public class login extends javax.swing.JFrame {
         jButtonContactForm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonContactForm.setForeground(new java.awt.Color(242, 161, 4));
         jButtonContactForm.setText("contact us");
+        jButtonContactForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonContactForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonContactFormActionPerformed(evt);
@@ -226,6 +227,7 @@ public class login extends javax.swing.JFrame {
         jButtonRegisterUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonRegisterUser.setForeground(new java.awt.Color(242, 161, 4));
         jButtonRegisterUser.setText("sign up now");
+        jButtonRegisterUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRegisterUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegisterUserActionPerformed(evt);
@@ -405,9 +407,9 @@ public class login extends javax.swing.JFrame {
     private void jButtonContactFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContactFormActionPerformed
         // TODO add your handling code here:
         dispose();
-        feedback fedform = new feedback();
-        fedform.setTitle("Feedback");
-        fedform.setVisible(true);
+        contact ct = new contact();
+        ct.setTitle("Contact Us");
+        ct.setVisible(true);
     }//GEN-LAST:event_jButtonContactFormActionPerformed
 
     private void tfUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusGained
