@@ -1,0 +1,50 @@
+USE easylife;
+CREATE TABLE customer (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  firstName VARCHAR(50),
+  lastName VARCHAR(50),
+  gender VARCHAR(10),
+  phone VARCHAR(15),
+  email VARCHAR(50),
+  country VARCHAR(20),
+  state VARCHAR(15),
+  address VARCHAR(100)
+);
+
+USE easylife;
+CREATE TABLE login (
+  loginId INT PRIMARY KEY AUTO_INCREMENT,
+  customerId INT NOT NULL,
+  username VARCHAR(30) NOT NULL UNIQUE,
+  password VARCHAR(30) NOT NULL,
+  FOREIGN KEY (customerId) REFERENCES customer(customerId)
+);
+
+USE easylife;
+    CREATE TABLE contact (
+    contactId INT PRIMARY KEY AUTO_INCREMENT,
+    fullName varchar(50),
+    email varchar(50),
+    message varchar(200)
+);
+
+USE easylife;
+CREATE TABLE product (
+  productId INT PRIMARY KEY AUTO_INCREMENT,
+  productName VARCHAR(50),
+  price VARCHAR(50),
+  quantity VARCHAR(10),
+  brand VARCHAR(15),
+  prodDate VARCHAR(50),
+  discountPrice VARCHAR(20),
+  category VARCHAR(15)
+);
+
+  USE easylife;
+  CREATE TABLE feedback (
+  feedbackId INT PRIMARY KEY AUTO_INCREMENT,
+  customerId INT NOT NULL,
+  rating VARCHAR(50) NOT NULL,
+  message TEXT,
+  FOREIGN KEY (customerId) REFERENCES customer(customerId)
+);
