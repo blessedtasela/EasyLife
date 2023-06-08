@@ -35,12 +35,15 @@ public class passwordRecovery extends javax.swing.JFrame {
         tf1 = new javax.swing.JTextField();
         btnResetpassword = new javax.swing.JButton();
         jLabelUserLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
         jLabelUserLabel2 = new javax.swing.JLabel();
         jLabelUserLabel3 = new javax.swing.JLabel();
         jLabelUserLabel4 = new javax.swing.JLabel();
         tf2 = new javax.swing.JTextField();
         tf3 = new javax.swing.JTextField();
         tf4 = new javax.swing.JTextField();
+=======
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +61,11 @@ public class passwordRecovery extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
                 .addComponent(jlabelLoginLogo2))
         );
         jPanel7Layout.setVerticalGroup(
@@ -100,6 +107,7 @@ public class passwordRecovery extends javax.swing.JFrame {
         });
 
         jLabelUserLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+<<<<<<< HEAD
         jLabelUserLabel1.setText("Username");
 
         jLabelUserLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -128,6 +136,9 @@ public class passwordRecovery extends javax.swing.JFrame {
                 tf4ActionPerformed(evt);
             }
         });
+=======
+        jLabelUserLabel1.setText("E-mail");
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,6 +147,7 @@ public class passwordRecovery extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelUserLabel2)
                     .addComponent(jLabelUserLabel4)
@@ -147,16 +159,29 @@ public class passwordRecovery extends javax.swing.JFrame {
                     .addComponent(tf4, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                .addComponent(jLabelUserLabel1)
+                .addGap(34, 34, 34)
+                .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(186, 186, 186))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnResetpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49))))
+=======
+                        .addComponent(btnResetpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))))
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,6 +191,7 @@ public class passwordRecovery extends javax.swing.JFrame {
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+<<<<<<< HEAD
                     .addComponent(jLabelUserLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -187,6 +213,13 @@ public class passwordRecovery extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addComponent(btnResetpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
+=======
+                    .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUserLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(btnResetpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
         );
 
         pack();
@@ -204,6 +237,7 @@ public class passwordRecovery extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf1ActionPerformed
 
+<<<<<<< HEAD
     private void tf2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf2ActionPerformed
@@ -216,6 +250,8 @@ public class passwordRecovery extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tf4ActionPerformed
 
+=======
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
     /**
      * @param args the command line arguments
      */
@@ -255,15 +291,21 @@ public class passwordRecovery extends javax.swing.JFrame {
     private javax.swing.JButton btnResetpassword;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelUserLabel1;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabelUserLabel2;
     private javax.swing.JLabel jLabelUserLabel3;
     private javax.swing.JLabel jLabelUserLabel4;
+=======
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel jlabelLoginLogo2;
     private java.awt.Label label1;
     private javax.swing.JTextField tf1;
+<<<<<<< HEAD
     private javax.swing.JTextField tf2;
     private javax.swing.JTextField tf3;
     private javax.swing.JTextField tf4;
+=======
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
     // End of variables declaration//GEN-END:variables
 }

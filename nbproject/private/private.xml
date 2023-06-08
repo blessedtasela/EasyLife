@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/registerUser.java</file>
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/orderList.java</file>
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/easylifeMain.java</file>
@@ -14,6 +15,29 @@
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/passwordRecovery.java</file>
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/login.java</file>
             <file>file:/C:/Users/driou/Downloads/EasyLife/EasyLife/src/easylife/EasyLifeUI/cart.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/products.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/passwordRecovery.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/wishlist.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/cart.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/database/insert_data.txt</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/registerUser.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/account.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/dbConnection.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/orderList.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/login.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/homepage.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/contact.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/database/create_tables.txt</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/feedback.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/orders.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/EasyLife/src/easylife/database/create_database.txt</file>
+=======
+            <file>file:/C:/Users/driou/OneDrive/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/login.java</file>
+            <file>file:/C:/Users/driou/OneDrive/Documents/NetBeansProjects/EasyLife/src/easylife/EasyLifeUI/contact.java</file>
+>>>>>>> 69226d5e957d85fb5320592ed45229f613ede14d
+>>>>>>> 8590e671d87da194546d066bd3a6c05f6d812a42
         </group>
     </open-files>
 </project-private>
