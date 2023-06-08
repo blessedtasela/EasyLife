@@ -32,9 +32,7 @@ public class passwordRecovery extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jlabelLoginLogo2 = new javax.swing.JLabel();
         label1 = new java.awt.Label();
-        tf1 = new javax.swing.JTextField();
         btnResetpassword = new javax.swing.JButton();
-        jLabelUserLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,12 +70,6 @@ public class passwordRecovery extends javax.swing.JFrame {
         label1.setName(""); // NOI18N
         label1.setText("Forgot Password?");
 
-        tf1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf1ActionPerformed(evt);
-            }
-        });
-
         btnResetpassword.setBackground(new java.awt.Color(204, 204, 255));
         btnResetpassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnResetpassword.setForeground(new java.awt.Color(29, 101, 166));
@@ -93,20 +85,11 @@ public class passwordRecovery extends javax.swing.JFrame {
             }
         });
 
-        jLabelUserLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelUserLabel1.setText("E-mail");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabelUserLabel1)
-                .addGap(34, 34, 34)
-                .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,11 +106,7 @@ public class passwordRecovery extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tf1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUserLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(btnResetpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -142,10 +121,6 @@ public class passwordRecovery extends javax.swing.JFrame {
     private void btnResetpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetpasswordActionPerformed
              
     }//GEN-LAST:event_btnResetpasswordActionPerformed
-
-    private void tf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,10 +160,8 @@ public class passwordRecovery extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnResetpassword;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelUserLabel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel jlabelLoginLogo2;
     private java.awt.Label label1;
-    private javax.swing.JTextField tf1;
     // End of variables declaration//GEN-END:variables
 }
