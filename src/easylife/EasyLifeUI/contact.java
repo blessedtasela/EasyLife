@@ -9,64 +9,69 @@ package easylife.EasyLifeUI;
  * @author blessedtasela
  */
 //import classes
-
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
 public class contact extends javax.swing.JFrame {
 
-     dbConnection connect;
-     
+    dbConnection connect;
+
     public contact() {
         initComponents();
-         connect = new dbConnection();
+        connect = new dbConnection();
 
         if (connect == null) {
             System.out.println("Error in connection. Can't connect to database");
         } else {
             System.out.println("Connection successful");
-        } 
-        
+        }
+
         //add placeholder style
-       addPlaceholderStyle(tfUser);
-       addPlaceholderStyle(tfEmail);
-       addPlaceholderStyle(taMessage);
-       
+        addPlaceholderStyle(tfEmail);
+        addPlaceholderStyle(tfUser);
+        addPlaceholderStyle(taMessage);
+
     }
+
     //create seperate methods to add placeholder style and remove place holder style;
-    public void addPlaceholderStyle(JTextField textField){
+    public void addPlaceholderStyle(JTextField textField) {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
         textField.setForeground(Color.gray);//font color
-        
+
     }
 
-       public void removePlaceholderStyle(JTextField textField){
+    public void removePlaceholderStyle(JTextField textField) {
         Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+        font = font.deriveFont(Font.PLAIN | Font.BOLD);
         textField.setFont(font);
         textField.setForeground(Color.black);//font color
     }
-       
-        public void addPlaceholderStyle(JTextArea textArea){
+
+    public void addPlaceholderStyle(JTextArea textArea) {
         Font font = textArea.getFont();
         font = font.deriveFont(Font.ITALIC);
         textArea.setFont(font);
         textArea.setForeground(Color.gray);//font color
-        
+
     }
 
-       public void removePlaceholderStyle(JTextArea textArea){
-           Font font = textArea.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+    public void removePlaceholderStyle(JTextArea textArea) {
+        Font font = textArea.getFont();
+        font = font.deriveFont(Font.PLAIN | Font.BOLD);
         textArea.setFont(font);
         textArea.setForeground(Color.black);//font color
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,49 +82,27 @@ public class contact extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfUser = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        taMessage = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jlabelLoginLogo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         tfEmail = new javax.swing.JTextField();
+        tfUser = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taMessage = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
             }
         });
-
-        tfUser.setText("Username");
-        tfUser.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                tfUserFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfUserFocusLost(evt);
-            }
-        });
-        tfUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfUserActionPerformed(evt);
-            }
-        });
-
-        taMessage.setColumns(20);
-        taMessage.setRows(5);
-        taMessage.setText("Message");
-        taMessage.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                taMessageFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                taMessageFocusLost(evt);
-            }
-        });
-        jScrollPane1.setViewportView(taMessage);
 
         jPanel5.setBackground(new java.awt.Color(29, 101, 166));
 
@@ -149,7 +132,8 @@ public class contact extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tfEmail.setText("E-mail Adress");
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfEmailFocusGained(evt);
@@ -158,11 +142,59 @@ public class contact extends javax.swing.JFrame {
                 tfEmailFocusLost(evt);
             }
         });
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
+            }
+        });
+
+        tfUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tfUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfUserFocusLost(evt);
+            }
+        });
+        tfUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfUserActionPerformed(evt);
+            }
+        });
+        tfUser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tfUserPropertyChange(evt);
+            }
+        });
+
+        taMessage.setColumns(20);
+        taMessage.setRows(5);
+        taMessage.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                taMessageFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                taMessageFocusLost(evt);
+            }
+        });
+        jScrollPane1.setViewportView(taMessage);
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(242, 161, 4));
+        jButton1.setText("Back");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnSubmit.setBackground(new java.awt.Color(204, 204, 255));
         btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(29, 101, 166));
         btnSubmit.setText("Submit");
+        btnSubmit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSubmitauthenticate(evt);
@@ -174,40 +206,88 @@ public class contact extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel1.setText("Full Name");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel2.setText("Email");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel3.setText("Got any questions for us? Leave a message here (optional)");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(141, 141, 141))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(50, 50, 50))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(tfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,87 +298,93 @@ public class contact extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitauthenticate
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-         String username = tfUser.getText();
-         String email = tfEmail.getText();
-         String message = taMessage.getText();
+        String fullName = tfUser.getText();
+        String email = tfEmail.getText();
+        String message = taMessage.getText();
 
-                // Perform some action with the entered data
-                System.out.println("Username: " + username);
-                System.out.println("Email Adress: " + email);
+        if ((fullName.isEmpty() || email.isEmpty() || message.isEmpty())) {
+            JOptionPane.showMessageDialog(this, "Fill up the from properly.", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            registerContact(fullName, email, message);
+        }
 
-                // Display a message dialog
-                JOptionPane.showMessageDialog(contact.this,
-                        "Thank you for contacting us!",
-                        "Message Sent",
-                        JOptionPane.INFORMATION_MESSAGE); 
-                tfUser.setText("");
-                tfEmail.setText("");
-                taMessage.setText("");
-                
-                
-                
-        
-       
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void tfUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUserActionPerformed
+    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfUserActionPerformed
-
-    private void tfUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusGained
-       if(tfUser.getText().equals("Username")){
-           tfUser.setText(null);
-           tfUser.requestFocus();
-           //remove placeholder style
-           removePlaceholderStyle(tfUser);
-       }
-    }//GEN-LAST:event_tfUserFocusGained
-
-    private void tfUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusLost
-      if(tfUser.getText().length()==0){
-      //add placeholder style
-      addPlaceholderStyle(tfUser);
-      tfUser.setText("Username");
-      }
-    }//GEN-LAST:event_tfUserFocusLost
+    }//GEN-LAST:event_tfEmailActionPerformed
 
     private void tfEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusGained
-         if(tfEmail.getText().equals("E-mail Adress")){
-           tfEmail.setText(null);
-           tfEmail.requestFocus();
-           //remove placeholder style
-           removePlaceholderStyle(tfEmail);
-       }
+//        if (tfEmail.getText().equals("Email Address")) {
+//            tfEmail.setText(null);
+//            tfEmail.requestFocus();
+//            //remove placeholder style
+//            removePlaceholderStyle(tfEmail);
+//        }
     }//GEN-LAST:event_tfEmailFocusGained
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-         if(tfEmail.getText().length()==0){
-      //add placeholder style
-      addPlaceholderStyle(tfEmail);
-      tfEmail.setText("E-mail Adress");
-      }
+//        if (tfEmail.getText().length() == 0) {
+//            //add placeholder style
+//            addPlaceholderStyle(tfEmail);
+//            tfEmail.setText("Email Address");
+//        }
     }//GEN-LAST:event_tfEmailFocusLost
 
+    private void tfUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusGained
+//        if (tfUser.getText().equals("Full Name")) {
+//            tfUser.setText(null);
+//            tfUser.requestFocus();
+//            //remove placeholder style
+//            removePlaceholderStyle(tfUser);
+//        }
+    }//GEN-LAST:event_tfUserFocusGained
+
+    private void tfUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusLost
+//        if (tfUser.getText().length() == 0) {
+//            //add placeholder style
+//            addPlaceholderStyle(tfUser);
+//            tfUser.setText("Full Name");
+//        }
+    }//GEN-LAST:event_tfUserFocusLost
+
     private void taMessageFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taMessageFocusGained
-         if(taMessage.getText().equals("Message")){
-           taMessage.setText(null);
-           taMessage.requestFocus();
-           //remove placeholder style
-           removePlaceholderStyle(taMessage);
-       }
+//        if (taMessage.getText().equals("Got any Questions? Leave a Message here")) {
+//            taMessage.setText(null);
+//            taMessage.requestFocus();
+//            //remove placeholder style
+//            removePlaceholderStyle(taMessage);
+//        }
     }//GEN-LAST:event_taMessageFocusGained
 
     private void taMessageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_taMessageFocusLost
-        if(taMessage.getText().length()==0){
-      //add placeholder style
-      addPlaceholderStyle(taMessage);
-      taMessage.setText("Message");
-      }
+//        if (taMessage.getText().length() == 0) {
+//            //add placeholder style
+//            addPlaceholderStyle(taMessage);
+//            taMessage.setText("Got any Questions? Leave a Message here");
+//        }
     }//GEN-LAST:event_taMessageFocusLost
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         this.requestFocusInWindow();
     }//GEN-LAST:event_formFocusGained
+
+    private void tfUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfUserActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        homepage hm = new homepage();
+        hm.setTitle("DashBoard");
+        hm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfUserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tfUserPropertyChange
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tfUserPropertyChange
 
     /**
      * @param args the command line arguments
@@ -337,7 +423,12 @@ public class contact extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabelLoginLogo;
@@ -345,4 +436,51 @@ public class contact extends javax.swing.JFrame {
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfUser;
     // End of variables declaration//GEN-END:variables
+
+    private void registerContact(String fullName, String email, String message) {
+        Connection dbconn = dbConnection.connectDb();
+        if (dbconn != null) {
+            try {
+                String insertContact = "INSERT INTO contact(fullName,"
+                        + "email,"
+                        + "message )"
+                        + " VALUES (?,?,?)";
+
+                PreparedStatement contactStatement = dbconn.prepareStatement(insertContact, PreparedStatement.RETURN_GENERATED_KEYS);
+
+                contactStatement.setString(1, fullName);
+                contactStatement.setString(2, email);
+                contactStatement.setString(3, message);
+
+                // Execute the customer insert statement and retrieve the generated keys
+                contactStatement.executeUpdate();
+
+                // Perform some action with the entered data
+                System.out.println("Username: " + fullName);
+                System.out.println("Email Adress: " + email);
+                System.out.println("Message: " + message);
+                 System.out.println("Message sent successfully");
+                // Display a message dialog
+                JOptionPane.showMessageDialog(contact.this,
+                        "Thank you for contacting us!",
+                        "Message Sent",
+                        JOptionPane.INFORMATION_MESSAGE);
+                tfEmail.setText("");
+                tfUser.setText("");
+                taMessage.setText("");
+
+                dispose();
+                homepage hm = new homepage();
+                hm.setTitle("Dashboard");
+                hm.setVisible(true);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Error creating account. please try again", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            System.out.println("The connection not available.");
+        }
+    }
+
 }
