@@ -4,6 +4,7 @@
  */
 package easylife.EasyLifeUI;
 
+import com.raven.main.Main;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -508,10 +509,10 @@ public class homepage extends javax.swing.JFrame {
 
     private void jButtonProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductsActionPerformed
         // TODO add your handling code here:
-//        dispose();
-//        products pd = new products();
-//        pd.setTitle("Products");
-//        pd.setVisible(true);
+        dispose();
+       Main m = new Main();
+       m.setTitle("Products");
+       m.setVisible(true);
         jPanelDashboard.setVisible(false);
         jPanelProducts.setVisible(true);
     }//GEN-LAST:event_jButtonProductsActionPerformed

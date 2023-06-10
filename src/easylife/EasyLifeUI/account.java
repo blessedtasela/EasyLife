@@ -4,10 +4,6 @@
  */
 package easylife.EasyLifeUI;
 
-/**
- *
- * @author blessedtasela
- */
 public class account extends javax.swing.JFrame {
 
     /**
