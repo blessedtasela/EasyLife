@@ -1,6 +1,7 @@
 
 package easylife.EasyLifeUI;
 
+import com.raven.main.Main;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
@@ -505,9 +506,9 @@ public class login extends javax.swing.JFrame {
                     System.out.println("Logged in");
                     JOptionPane.showMessageDialog(this, "You are successfully logged in. Click OK to continue", "Welcome", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                    homepage hm = new homepage();
-                    hm.setTitle("Dashboard");
-                    hm.setVisible(true);
+                    Main m = new Main();
+                    m.setTitle("main");
+                    m.setVisible(true);
 
                 } else {
                     System.out.println("Login details; ");
