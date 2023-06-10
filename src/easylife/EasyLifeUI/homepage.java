@@ -513,8 +513,7 @@ public class homepage extends javax.swing.JFrame {
        Main m = new Main();
        m.setTitle("Products");
        m.setVisible(true);
-        jPanelDashboard.setVisible(false);
-        jPanelProducts.setVisible(true);
+
     }//GEN-LAST:event_jButtonProductsActionPerformed
 
     private void jButtonFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFeedbackActionPerformed
