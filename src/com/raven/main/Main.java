@@ -18,15 +18,15 @@ public class Main extends javax.swing.JFrame {
     private FormHome home;
     private Animator animator;
     private Point animatePoint;
-    private ModelItem itemSelected;
+    private ModelItem itemSelected;;
 
     public Main() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         init();
         //  Animator start form animatePoint to TagetPoint
-        animator = PropertySetter.createAnimator(500, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
-        animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(180, 120), mainPanel.getTargetSize()));
+        animator = PropertySetter.createAnimator(700, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
+        animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(241, 239), mainPanel.getTargetSize()));
         animator.addTarget(new TimingTargetAdapter() {
             @Override
             public void end() {
@@ -240,6 +240,9 @@ public class Main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 public class PanelItem extends JPanel {
 
     public PanelItem() {
-        setBackground(Color.gray);
+        setBackground(Color.WHITE);
         setLayout(new WrapLayout(WrapLayout.LEFT, 10, 10));
     }
 }
