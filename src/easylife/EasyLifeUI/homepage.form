@@ -577,7 +577,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jPanelProducts" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
@@ -604,8 +606,6 @@
             <Property name="text" type="java.lang.String" value="Dashboard"/>
           </Properties>
         </Component>
-<<<<<<< HEAD
-=======
         <Container class="javax.swing.JPanel" name="jPanelProducts">
 
           <Layout>
@@ -636,7 +636,6 @@
             </Component>
           </SubComponents>
         </Container>
->>>>>>> 0952577c838cf5260f5879039f7f390078a785bb
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel6">
