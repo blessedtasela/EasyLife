@@ -1,7 +1,7 @@
 use easylife;
-INSERT INTO customer (customerId, firstName, lastName, gender, phone, email, image, country, state, address, privilege)
-VALUES (null, 'John', 'Doe', 'Male', '0633489760', 'johndoe@gmail.com', 'admin1.jpg', 'Morocco', 'Rabat', 'Sale Rabat', 'Admin'),
-       (null, 'Jane', 'Smith', 'Female', '0787899823', 'janesmith@gmail.com', 'admin2.jpg', 'England', 'London', 'Winchester City', 'Admin');
+INSERT INTO customer (customerId, firstName, lastName, gender, phone, email, country, state, address)
+VALUES (null, 'John', 'Doe', 'Male', '0633489760', 'johndoe@gmail.com', 'Morocco', 'Rabat', 'Sale Rabat'),
+       (null, 'Jane', 'Smith', 'Female', '0787899823', 'England', 'London', 'Winchester City');
 
 use easylife;
 INSERT INTO login (loginId, customerId, username, password)

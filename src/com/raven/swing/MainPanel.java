@@ -67,7 +67,7 @@ public class MainPanel extends JPanel {
     private Point imageLocation;
     private Dimension imageSize;
     private Point targetLocation = new Point(0, 0);
-    private Dimension targetSize = new Dimension(250, 250);
+    private Dimension targetSize = new Dimension(240, 240);
 
     public MainPanel() {
         setOpaque(false);
