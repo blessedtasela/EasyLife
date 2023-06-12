@@ -85,14 +85,13 @@ public class homepage extends javax.swing.JFrame {
         jPanelProfileLogo = new javax.swing.JPanel();
         jPanelDashboard = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-<<<<<<< HEAD
-=======
+
         jPanelProducts = new javax.swing.JPanel();
         jLabelProductList = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jlabelLoginLogo1 = new javax.swing.JLabel();
->>>>>>> 0952577c838cf5260f5879039f7f390078a785bb
+
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -388,8 +387,7 @@ public class homepage extends javax.swing.JFrame {
 
         jLabel2.setText("Dashboard");
 
-<<<<<<< HEAD
-=======
+
         jLabelProductList.setText("Product");
 
         javax.swing.GroupLayout jPanelProductsLayout = new javax.swing.GroupLayout(jPanelProducts);
@@ -409,7 +407,7 @@ public class homepage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
->>>>>>> 0952577c838cf5260f5879039f7f390078a785bb
+
         javax.swing.GroupLayout jPanelDashboardLayout = new javax.swing.GroupLayout(jPanelDashboard);
         jPanelDashboard.setLayout(jPanelDashboardLayout);
         jPanelDashboardLayout.setHorizontalGroup(
