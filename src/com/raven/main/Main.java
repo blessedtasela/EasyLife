@@ -3,8 +3,6 @@ package com.raven.main;
 import com.raven.event.EventItem;
 import com.raven.form.FormHome;
 import com.raven.model.ModelItem;
-import easylife.EasyLifeUI.MyCart;
-import easylife.EasyLifeUI.homepage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -77,7 +75,7 @@ public class Main extends javax.swing.JFrame {
             home.addItem(new ModelItem(ID++, "Beach Bag", " beach bag for women with Handles Embroidery Large Personalized  A", 150, "BeeGreen", new ImageIcon(getClass().getResource("/com/raven/image/Beach Bag.png"))));
             home.addItem(new ModelItem(ID++, "Cap for women", "Cap for women", 160, "UAAQV", new ImageIcon(getClass().getResource("/com/raven/image/Cap for women.png"))));
             home.addItem(new ModelItem(ID++, "Car Charger", "Wireless Car Charger, MOKPR Auto-Clamping Car Mount 15W/10W/7.5W Fast Charging Air Vent Car Phone Mount", 120, "MOKPR", new ImageIcon(getClass().getResource("/com/raven/image/Car Charger.png"))));
-            home.addItem(new ModelItem(ID++, "Girl's 2 Piece Outfits", " 2 Piece Outfits for girls", 370, "SheIn Girl", new ImageIcon(getClass().getResource("/com/raven/image/Girl's 2 Piece Outfits.png"))));
+            home.addItem(new ModelItem(ID++, "Girl s 2 Piece Outfits", " 2 Piece Outfits for girls", 370, "SheIn Girl", new ImageIcon(getClass().getResource("/com/raven/image/Girl's 2 Piece Outfits.png"))));
             home.addItem(new ModelItem(ID++, "Girls Kids Fall Clothing", "simple Joys by Carter's Toddlers and Baby Girls' 5-Piece Fleece Pajama Set", 190, "Carter", new ImageIcon(getClass().getResource("/com/raven/image/Girls Kids Fall Clothing.png"))));
             home.addItem(new ModelItem(ID++, "Glasses Computer", "Oilway Blue-Light Blocking Glasses Computer Reading/Gaming/TV/Phones Glasses Fashion Anti Eyestrain UV Glasses for Women Men", 180, "Oilway", new ImageIcon(getClass().getResource("/com/raven/image/Glasses Computer.png"))));
             home.addItem(new ModelItem(ID++, "Hair accessories", "755PCS Hair Holder Accessories for Women", 90, "YANRONG", new ImageIcon(getClass().getResource("/com/raven/image/Hair accessories.png"))));
@@ -127,7 +125,7 @@ public class Main extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(934, Short.MAX_VALUE)
+                .addContainerGap(935, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(winButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabelLoginLogo, javax.swing.GroupLayout.Alignment.TRAILING)))
