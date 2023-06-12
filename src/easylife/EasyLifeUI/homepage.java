@@ -512,16 +512,16 @@ public class homepage extends javax.swing.JFrame {
     private void jButtonProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductsActionPerformed
         // TODO add your handling code here:
         dispose();
-<<<<<<< HEAD
+
         products pd = new products();
         pd.setTitle("Products");
         pd.setVisible(true);
-=======
+
        Main m = new Main();
        m.setTitle("Products");
        m.setVisible(true);
 
->>>>>>> 0952577c838cf5260f5879039f7f390078a785bb
+
     }//GEN-LAST:event_jButtonProductsActionPerformed
 
     private void jButtonFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFeedbackActionPerformed
