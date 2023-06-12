@@ -1,6 +1,6 @@
 USE easylife;
 CREATE TABLE customer (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  customerId INT PRIMARY KEY AUTO_INCREMENT,
   firstName VARCHAR(50),
   lastName VARCHAR(50),
   gender VARCHAR(10),
@@ -49,3 +49,14 @@ CREATE TABLE product (
   message TEXT,
   FOREIGN KEY (customerId) REFERENCES customer(customerId)
 );
+
+
+CREATE TABLE product (
+  idproduct int NOT NULL AUTO_INCREMENT,
+  item varchar(45) NOT NULL,
+  price varchar(45) DEFAULT NULL,
+  brand varchar(45) DEFAULT NULL,
+  descr varchar(500) DEFAULT NULL,
+  PRIMARY KEY (idproduct,item)
+);
+
