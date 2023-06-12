@@ -187,6 +187,11 @@ public class FormHome extends javax.swing.JPanel {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(29, 101, 166));
         jButton3.setText("My Cart");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -291,10 +296,7 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
-        MyCart mc = new MyCart();
-        mc.setTitle("My Cart");
-        mc.setVisible(true);
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -312,6 +314,13 @@ public class FormHome extends javax.swing.JPanel {
             }
         });*/
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        //dispose();
+        MyCart mc = new MyCart();
+        mc.setTitle("My Cart");
+        mc.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -333,6 +342,8 @@ public class FormHome extends javax.swing.JPanel {
     private void dispose() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 
     
 }
