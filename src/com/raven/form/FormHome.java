@@ -7,9 +7,11 @@ import com.raven.swing.ScrollBar;
 import easylife.EasyLifeUI.MyCart;
 import easylife.EasyLifeUI.contact;
 import easylife.EasyLifeUI.homepage;
+import easylife.EasyLifeUI.payment;
 import easylife.EasyLifeUI.review;
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.Window;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -23,6 +25,10 @@ import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 
 
 public class FormHome extends javax.swing.JPanel {
+
+    private static void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     public void setEvent(EventItem event) {
         this.event = event;
@@ -304,21 +310,34 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
         review r = new review();
-        r.setTitle("Contact Us");
+        r.setTitle("Review");
         r.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+            Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
        
+        MyCart mc = new MyCart();
+        mc.setTitle("My Cart");
+        mc.setVisible(true);       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
-        // Hide the window
-        dispose();
+         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
+       
         homepage hm = new homepage();
         hm.setTitle("Home");
        hm.setVisible(true);
@@ -328,19 +347,21 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        /* java.awt.EventQueue.invokeLater(new Runnable(){
+          Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }     
+        java.awt.EventQueue.invokeLater(new Runnable(){
+                 
             public void run()
             {
-                new Paiment.paiment().setVisible(true);
+                new payment().setVisible(true);
             }
-        });*/
+        });      
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        dispose();
-        MyCart mc = new MyCart();
-        mc.setTitle("My Cart");
-        mc.setVisible(true);
+        
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -367,14 +388,4 @@ public class FormHome extends javax.swing.JPanel {
     private javax.swing.JScrollPane scroll;
     public static javax.swing.JTextPane txtDescription;
     // End of variables declaration//GEN-END:variables
-
-    private void dispose() {
-        
-    }
-
-    
-
-    
-
-    
 }

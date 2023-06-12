@@ -244,6 +244,7 @@ public class review extends javax.swing.JFrame {
                 textField1.setText("");
                 textField2.setText("");
                 TextArea1.setText("");
+                dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
