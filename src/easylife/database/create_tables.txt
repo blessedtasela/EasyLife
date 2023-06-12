@@ -23,21 +23,22 @@ CREATE TABLE login (
 USE easylife;
     CREATE TABLE contact (
     contactId INT PRIMARY KEY AUTO_INCREMENT,
-    fullName varchar(50),
-    email varchar(50),
+    fullName varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
     message varchar(200)
 );
 
 USE easylife;
 CREATE TABLE product (
   productId INT PRIMARY KEY AUTO_INCREMENT,
-  productName VARCHAR(50),
-  price VARCHAR(50),
-  quantity VARCHAR(10),
-  brand VARCHAR(15),
-  prodDate VARCHAR(50),
-  discountPrice VARCHAR(20),
-  category VARCHAR(15)
+  productName VARCHAR(50) NOT NULL,
+  price FLOAT NOT NULL,
+  quantity INT NOT NULL,
+  brand VARCHAR(20) NOT NULL,
+  prodDate DATETIME NOT NULL,
+  discountPrice FLOAT NOT NULL,
+  category VARCHAR(20) NOT NULL,
+  image VARCHAR(50) NOT NULL
 );
 
   USE easylife;

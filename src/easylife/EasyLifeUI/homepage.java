@@ -34,11 +34,9 @@ public class homepage extends javax.swing.JFrame {
     /**
      * Creates new form homepage
      */
-
     public homepage() {
         initComponents();
 
-        jPanelProducts.setVisible(false);
 // Set the content pane layout to BorderLayout
         getContentPane().setLayout(new BorderLayout());
 
@@ -86,8 +84,6 @@ public class homepage extends javax.swing.JFrame {
         jPanelProfileLogo = new javax.swing.JPanel();
         jPanelDashboard = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanelProducts = new javax.swing.JPanel();
-        jLabelProductList = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -383,46 +379,20 @@ public class homepage extends javax.swing.JFrame {
 
         jLabel2.setText("Dashboard");
 
-        jLabelProductList.setText("Product");
-
-        javax.swing.GroupLayout jPanelProductsLayout = new javax.swing.GroupLayout(jPanelProducts);
-        jPanelProducts.setLayout(jPanelProductsLayout);
-        jPanelProductsLayout.setHorizontalGroup(
-            jPanelProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProductsLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabelProductList)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        jPanelProductsLayout.setVerticalGroup(
-            jPanelProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProductsLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabelProductList)
-                .addContainerGap(263, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanelDashboardLayout = new javax.swing.GroupLayout(jPanelDashboard);
         jPanelDashboard.setLayout(jPanelDashboardLayout);
         jPanelDashboardLayout.setHorizontalGroup(
             jPanelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDashboardLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jPanelProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(244, 244, 244)
                 .addComponent(jLabel2)
                 .addContainerGap(226, Short.MAX_VALUE))
         );
         jPanelDashboardLayout.setVerticalGroup(
             jPanelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDashboardLayout.createSequentialGroup()
-                .addGroup(jPanelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDashboardLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanelDashboardLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanelProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(127, 127, 127)
+                .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -473,12 +443,10 @@ public class homepage extends javax.swing.JFrame {
 
     private void jButtonProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductsActionPerformed
         // TODO add your handling code here:
-//        dispose();
-//        products pd = new products();
-//        pd.setTitle("Products");
-//        pd.setVisible(true);
-        jPanelDashboard.setVisible(false);
-        jPanelProducts.setVisible(true);
+        dispose();
+        products pd = new products();
+        pd.setTitle("Products");
+        pd.setVisible(true);
     }//GEN-LAST:event_jButtonProductsActionPerformed
 
     private void jButtonFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFeedbackActionPerformed
@@ -597,7 +565,6 @@ public class homepage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDashboardTitle;
-    private javax.swing.JLabel jLabelProductList;
     private javax.swing.JLabel jLabelProducts;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
@@ -605,7 +572,6 @@ public class homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelDashboard;
     private javax.swing.JPanel jPanelDashboardLogo;
-    private javax.swing.JPanel jPanelProducts;
     private javax.swing.JPanel jPanelProfileLogo;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
