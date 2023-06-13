@@ -9,6 +9,7 @@ import easylife.EasyLifeUI.contact;
 import easylife.EasyLifeUI.homepage;
 import easylife.EasyLifeUI.payment;
 import easylife.EasyLifeUI.review;
+import easylife.EasyLifeUI.wishlist;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.Window;
@@ -98,8 +99,10 @@ public class FormHome extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(1226, 620));
 
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -214,7 +217,7 @@ public class FormHome extends javax.swing.JPanel {
         jButton4.setBackground(new java.awt.Color(204, 204, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(29, 101, 166));
-        jButton4.setText("Back");
+        jButton4.setText("Wish List");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -233,19 +236,36 @@ public class FormHome extends javax.swing.JPanel {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(204, 204, 255));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(29, 101, 166));
+        jButton5.setText("Back");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(jButton4)
                 .addGap(78, 78, 78)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,8 +277,9 @@ public class FormHome extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 10, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -270,7 +291,7 @@ public class FormHome extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+                    .addComponent(scroll)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -288,24 +309,39 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           String item = lbItemName.getText();
-        String Price = lbPrice.getText();
-        String brand = lbBrand.getText();
-        String descr = txtDescription.getText();
-        String con = "jdbc:mysql://localhost:3306/easylife";
-        String username = "root";
-        String password = "";
-        PreparedStatement st = null;
-        String requete = "INSERT INTO product (item, price , brand , descr) VALUES ('"+item+"' , '"+Price+"', '"+brand+"', '"+descr+"')";
-        try (Connection conn = DriverManager.getConnection(con, username, password)) {
-                st = conn.prepareStatement(requete);
-                int rs=st.executeUpdate();
+   String item = lbItemName.getText();
+String price = lbPrice.getText();
+String brand = lbBrand.getText();
+String descr = txtDescription.getText();
+String con = "jdbc:mysql://localhost:3306/easylife";
+String username = "root";
+String password = "";
 
-            conn.close();
-            JOptionPane.showMessageDialog(this, "Export Validated", "SUCCES", HIDE_ON_CLOSE);
-        } catch (SQLException e) {
-            System.out.println("Error inserting a row into the users table: " + e.getMessage());
+// Check if all fields are filled
+if (item.isEmpty() || price.isEmpty() || brand.isEmpty() || descr.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill in all fields", "ERROR", JOptionPane.ERROR_MESSAGE);
+} else {
+    String query = "INSERT INTO product (item, price, brand, descr) VALUES (?, ?, ?, ?)";
+
+    try (Connection conn = DriverManager.getConnection(con, username, password);
+         PreparedStatement st = conn.prepareStatement(query)) {
+        st.setString(1, item);
+        st.setString(2, price);
+        st.setString(3, brand);
+        st.setString(4, descr);
+
+        int rowsInserted = st.executeUpdate();
+
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(this, "Export Validated", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to insert a row", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    } catch (SQLException e) {
+        System.out.println("Error inserting a row into the product table: " + e.getMessage());
+    }
+}
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -321,29 +357,26 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+                      Window window = SwingUtilities.getWindowAncestor(FormHome.this);
             if (window != null) {
             window.dispose(); // Dispose the parent window
         }
        
         MyCart mc = new MyCart();
-        mc.setTitle("My Cart");
-        mc.setVisible(true);       
+        mc.setTitle("Home");
+       mc.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+       Window window = SwingUtilities.getWindowAncestor(FormHome.this);
             if (window != null) {
             window.dispose(); // Dispose the parent window
         }
        
-        homepage hm = new homepage();
-        hm.setTitle("Home");
-       hm.setVisible(true);
-       
-      
-       
+        wishlist w = new wishlist();
+        w.setTitle("My Cart");
+        w.setVisible(true);        
+  
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -372,11 +405,27 @@ public class FormHome extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+           Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
+       
+        homepage hp = new homepage();
+        hp.setTitle("My Cart");
+        hp.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

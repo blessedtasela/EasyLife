@@ -52,7 +52,6 @@ public class registerUser extends javax.swing.JFrame {
         tfEmail = new javax.swing.JTextField();
         jLabelPasswordLabel3 = new javax.swing.JLabel();
         jLabelPasswordLabel4 = new javax.swing.JLabel();
-        tfPassword = new javax.swing.JTextField();
         jLabelUserLabel1 = new javax.swing.JLabel();
         tfFirstname = new javax.swing.JTextField();
         jLabelPasswordLabel5 = new javax.swing.JLabel();
@@ -67,6 +66,7 @@ public class registerUser extends javax.swing.JFrame {
         jLabelPasswordLabel11 = new javax.swing.JLabel();
         jButtonRegisterUser = new javax.swing.JButton();
         tfAdress = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -145,12 +145,6 @@ public class registerUser extends javax.swing.JFrame {
         jLabelPasswordLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelPasswordLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelPasswordLabel4.setText("Password");
-
-        tfPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPasswordActionPerformed(evt);
-            }
-        });
 
         jLabelUserLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelUserLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -262,8 +256,8 @@ public class registerUser extends javax.swing.JFrame {
                             .addComponent(jLabelPasswordLabel11))
                         .addGap(83, 83, 83)
                         .addGroup(jPanelFormInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfUsername, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfPassword, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(tfUsername)
+                            .addComponent(tfPassword)))
                     .addGroup(jPanelFormInputLayout.createSequentialGroup()
                         .addComponent(jButtonRegisterUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -336,8 +330,8 @@ public class registerUser extends javax.swing.JFrame {
                     .addComponent(jLabelPasswordLabel11))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelFormInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfPassword)
-                    .addComponent(jLabelPasswordLabel4))
+                    .addComponent(jLabelPasswordLabel4)
+                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelFormInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegisterUser)
@@ -409,10 +403,6 @@ public class registerUser extends javax.swing.JFrame {
     private void tfFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfFirstnameActionPerformed
-
-    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPasswordActionPerformed
 
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
@@ -502,7 +492,7 @@ public class registerUser extends javax.swing.JFrame {
     private javax.swing.JTextField tfFirstname;
     private javax.swing.JTextField tfGender;
     private javax.swing.JTextField tfLastname;
-    private javax.swing.JTextField tfPassword;
+    private javax.swing.JPasswordField tfPassword;
     private javax.swing.JTextField tfPhone;
     private javax.swing.JTextField tfState;
     private javax.swing.JTextField tfUsername;
