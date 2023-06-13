@@ -87,7 +87,7 @@ public class review extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
                 .addGap(175, 175, 175)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(jlabelLoginLogo))
         );
         headerLayout.setVerticalGroup(
@@ -165,7 +165,7 @@ public class review extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(starRating1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,8 +207,11 @@ public class review extends javax.swing.JFrame {
         background1.setLayout(background1Layout);
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, background1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +241,14 @@ public class review extends javax.swing.JFrame {
         String email = textField2.getText();
         String message = TextArea1.getText();
         int rate = starRating1.getStar();
+        
+        if ((user.isEmpty() || email.isEmpty() || message.isEmpty())) {
+            JOptionPane.showMessageDialog(this, "Fill up the from properly.", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+        JOptionPane.showMessageDialog(review.this, "Thank you for your review!","Message Sent",JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        
         String con = "jdbc:mysql://localhost:3306/easylife";
         String username = "root";
         String password = "";
@@ -251,18 +262,17 @@ public class review extends javax.swing.JFrame {
             int rs=st.executeUpdate();
             sp = conn.prepareStatement(query);
             ResultSet rp=sp.executeQuery(query);
+            
+                textField1.setText("");
+                textField2.setText("");
+                TextArea1.setText("");
            
                  
         } catch (SQLException e) {
             System.out.println("Error inserting a row into the users table: " + e.getMessage());
+            
         } 
-        JOptionPane.showMessageDialog(review.this,
-                        "Thank you for your review!",
-                        "Message Sent",
-                        JOptionPane.INFORMATION_MESSAGE);
-                textField1.setText("");
-                textField2.setText("");
-                TextArea1.setText("");
+        
                 
     }//GEN-LAST:event_jButton1MouseClicked
 

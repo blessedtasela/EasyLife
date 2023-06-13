@@ -244,34 +244,29 @@ public class MyCart extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
           String con = "jdbc:mysql://localhost:3306/easylife";
-        String username = "root";
-        String password = "";
-        DefaultTableModel delete = (DefaultTableModel)jTable1.getModel();
+          String username = "root";
+          String password = "";
+         DefaultTableModel delete = (DefaultTableModel) jTable1.getModel();
         int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow != -1) {
         String selected = jTable1.getValueAt(selectedRow, 0).toString();
-         if(jTable1.getSelectedRowCount() == 1)
-         {
-             delete.removeRow(jTable1.getSelectedRow());
-             try(Connection conn = DriverManager.getConnection(con, username, password))
-             {
-                PreparedStatement ps = conn.prepareStatement("delete from product where item ='"+selected+"' ");
-                 ps.executeUpdate();
-                 JOptionPane.showMessageDialog(this, "Product Deleted", "SUCCESS", HIDE_ON_CLOSE);
-             } catch (SQLException ex) {
-                  Logger.getLogger(MyCart.class.getName()).log(Level.SEVERE, null, ex);
-              }
-         }
-         else
-         {
-             if(jTable1.getRowCount() == 0)
-             {
-                   JOptionPane.showMessageDialog(this, "Table is empty", "WARNING", HEIGHT);
-             }
-             else
-             {
-                   JOptionPane.showMessageDialog(this, "Select a product", "ERREUR", HEIGHT);
-             }
-         }             
+        delete.removeRow(selectedRow);
+        try (Connection conn = DriverManager.getConnection(con, username, password)) {
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM product WHERE item = ?");
+            ps.setString(1, selected);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Product Deleted", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(MyCart.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Failed to delete product", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        if (jTable1.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Table is empty", "WARNING", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Select a product", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }             
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

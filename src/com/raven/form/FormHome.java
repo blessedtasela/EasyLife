@@ -309,24 +309,39 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           String item = lbItemName.getText();
-        String Price = lbPrice.getText();
-        String brand = lbBrand.getText();
-        String descr = txtDescription.getText();
-        String con = "jdbc:mysql://localhost:3306/easylife";
-        String username = "root";
-        String password = "";
-        PreparedStatement st = null;
-        String requete = "INSERT INTO product (item, price , brand , descr) VALUES ('"+item+"' , '"+Price+"', '"+brand+"', '"+descr+"')";
-        try (Connection conn = DriverManager.getConnection(con, username, password)) {
-                st = conn.prepareStatement(requete);
-                int rs=st.executeUpdate();
+   String item = lbItemName.getText();
+String price = lbPrice.getText();
+String brand = lbBrand.getText();
+String descr = txtDescription.getText();
+String con = "jdbc:mysql://localhost:3306/easylife";
+String username = "root";
+String password = "";
 
-            conn.close();
-            JOptionPane.showMessageDialog(this, "Export Validated", "SUCCES", HIDE_ON_CLOSE);
-        } catch (SQLException e) {
-            System.out.println("Error inserting a row into the users table: " + e.getMessage());
+// Check if all fields are filled
+if (item.isEmpty() || price.isEmpty() || brand.isEmpty() || descr.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill in all fields", "ERROR", JOptionPane.ERROR_MESSAGE);
+} else {
+    String query = "INSERT INTO product (item, price, brand, descr) VALUES (?, ?, ?, ?)";
+
+    try (Connection conn = DriverManager.getConnection(con, username, password);
+         PreparedStatement st = conn.prepareStatement(query)) {
+        st.setString(1, item);
+        st.setString(2, price);
+        st.setString(3, brand);
+        st.setString(4, descr);
+
+        int rowsInserted = st.executeUpdate();
+
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(this, "Export Validated", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to insert a row", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    } catch (SQLException e) {
+        System.out.println("Error inserting a row into the product table: " + e.getMessage());
+    }
+}
+
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -342,29 +357,26 @@ public class FormHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+                      Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
+       
+        MyCart mc = new MyCart();
+        mc.setTitle("Home");
+       mc.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       Window window = SwingUtilities.getWindowAncestor(FormHome.this);
             if (window != null) {
             window.dispose(); // Dispose the parent window
         }
        
         wishlist w = new wishlist();
         w.setTitle("My Cart");
-        w.setVisible(true);       
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
-            if (window != null) {
-            window.dispose(); // Dispose the parent window
-        }
-       
-        homepage hm = new homepage();
-        hm.setTitle("Home");
-       hm.setVisible(true);
-       
-      
-       
+        w.setVisible(true);        
+  
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
