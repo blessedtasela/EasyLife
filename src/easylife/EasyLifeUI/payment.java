@@ -4,6 +4,7 @@
  */
 package easylife.EasyLifeUI;
 
+import com.raven.main.Main;
 import java.awt.Color;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -227,7 +228,10 @@ public class payment extends javax.swing.JFrame {
     }//GEN-LAST:event_tfCardnumActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       dispose();
+        Main m = new Main();
+        m.setTitle("DashBoard");
+        m.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -269,9 +273,12 @@ public class payment extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.out.println("Error inserting a row into the users table: " + e.getMessage());
         } 
-            
             JOptionPane.showMessageDialog(payment.this,"Your payment has been validated!","Success",JOptionPane.INFORMATION_MESSAGE);
-                dispose();
+                tfCardnum.setText("");
+                tfCode.setText("");
+                tfCardholder.setText("");
+                ((JTextField)txt_Date.getDateEditor().getUiComponent()).setText("");
+               
              try(Connection conn = DriverManager.getConnection(con, username, password))
            {
                se = conn.prepareStatement(query);

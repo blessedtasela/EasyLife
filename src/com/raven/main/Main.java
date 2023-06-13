@@ -115,7 +115,10 @@ public class Main extends javax.swing.JFrame {
         mainPanel = new com.raven.swing.MainPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1226, 660));
+        setMinimumSize(new java.awt.Dimension(1226, 660));
         setUndecorated(true);
+        setSize(new java.awt.Dimension(1226, 660));
 
         header.setBackground(new java.awt.Color(29, 101, 166));
 
@@ -126,7 +129,7 @@ public class Main extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(963, Short.MAX_VALUE)
+                .addContainerGap(640, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(winButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabelLoginLogo, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -147,7 +150,7 @@ public class Main extends javax.swing.JFrame {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 377, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
