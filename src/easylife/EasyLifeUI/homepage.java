@@ -201,7 +201,7 @@ public class homepage extends javax.swing.JFrame {
         jButtonFeedback.setBackground(new java.awt.Color(204, 204, 204));
         jButtonFeedback.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButtonFeedback.setForeground(new java.awt.Color(242, 161, 4));
-        jButtonFeedback.setText("Feedback");
+        jButtonFeedback.setText("Review");
         jButtonFeedback.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -519,9 +519,9 @@ public class homepage extends javax.swing.JFrame {
     private void jButtonFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFeedbackActionPerformed
         // TODO add your handling code here:
         dispose();
-        feedback fd = new feedback();
-        fd.setTitle("Feedback");
-        fd.setVisible(true);
+        review r = new review();
+        r.setTitle("Feedback");
+        r.setVisible(true);
     }//GEN-LAST:event_jButtonFeedbackActionPerformed
 
     private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed

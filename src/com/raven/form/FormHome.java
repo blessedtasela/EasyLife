@@ -5,9 +5,13 @@ import com.raven.event.EventItem;
 import com.raven.model.ModelItem;
 import com.raven.swing.ScrollBar;
 import easylife.EasyLifeUI.MyCart;
+import easylife.EasyLifeUI.contact;
 import easylife.EasyLifeUI.homepage;
+import easylife.EasyLifeUI.payment;
+import easylife.EasyLifeUI.review;
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.Window;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -21,6 +25,10 @@ import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 
 
 public class FormHome extends javax.swing.JPanel {
+
+    private static void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     public void setEvent(EventItem event) {
         this.event = event;
@@ -177,6 +185,11 @@ public class FormHome extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(29, 101, 166));
         jButton2.setText("Review");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -202,6 +215,11 @@ public class FormHome extends javax.swing.JPanel {
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(29, 101, 166));
         jButton4.setText("Back");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -220,13 +238,12 @@ public class FormHome extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(78, 78, 78)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -289,38 +306,71 @@ public class FormHome extends javax.swing.JPanel {
         } catch (SQLException e) {
             System.out.println("Error inserting a row into the users table: " + e.getMessage());
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
+        review r = new review();
+        r.setTitle("Review");
+        r.setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+            Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
        
+        MyCart mc = new MyCart();
+        mc.setTitle("My Cart");
+        mc.setVisible(true);       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        dispose();
+        
+         Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }
+       
         homepage hm = new homepage();
-        hm.setTitle("DashBoard");
-        hm.setVisible(true);
+        hm.setTitle("Home");
+       hm.setVisible(true);
+       
+      
+       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        /* java.awt.EventQueue.invokeLater(new Runnable(){
+          Window window = SwingUtilities.getWindowAncestor(FormHome.this);
+            if (window != null) {
+            window.dispose(); // Dispose the parent window
+        }     
+        java.awt.EventQueue.invokeLater(new Runnable(){
+                 
             public void run()
             {
-                new Paiment.paiment().setVisible(true);
+                new payment().setVisible(true);
             }
-        });*/
+        });      
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        //dispose();
-        MyCart mc = new MyCart();
-        mc.setTitle("My Cart");
-        mc.setVisible(true);
+        
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+       
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -338,12 +388,4 @@ public class FormHome extends javax.swing.JPanel {
     private javax.swing.JScrollPane scroll;
     public static javax.swing.JTextPane txtDescription;
     // End of variables declaration//GEN-END:variables
-
-    private void dispose() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
-
-    
 }

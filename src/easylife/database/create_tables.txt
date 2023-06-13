@@ -28,27 +28,7 @@ USE easylife;
     message varchar(200)
 );
 
-USE easylife;
-CREATE TABLE product (
-  productId INT PRIMARY KEY AUTO_INCREMENT,
-  productName VARCHAR(50) NOT NULL,
-  price FLOAT NOT NULL,
-  quantity INT NOT NULL,
-  brand VARCHAR(20) NOT NULL,
-  prodDate DATETIME NOT NULL,
-  discountPrice FLOAT NOT NULL,
-  category VARCHAR(20) NOT NULL,
-  image VARCHAR(50) NOT NULL
-);
 
-  USE easylife;
-  CREATE TABLE feedback (
-  feedbackId INT PRIMARY KEY AUTO_INCREMENT,
-  customerId INT NOT NULL,
-  rating VARCHAR(50) NOT NULL,
-  message TEXT,
-  FOREIGN KEY (customerId) REFERENCES customer(customerId)
-);
 
 
 CREATE TABLE product (
@@ -60,3 +40,21 @@ CREATE TABLE product (
   PRIMARY KEY (idproduct,item)
 );
 
+CREATE TABLE `review` (
+  `idrev` int NOT NULL AUTO_INCREMENT,
+  `user` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `message` varchar(100) DEFAULT NULL,
+  `rate` int DEFAULT NULL,
+  PRIMARY KEY (`idrev`)
+)
+
+
+CREATE TABLE `payment` (
+  `idpay` int NOT NULL AUTO_INCREMENT,
+  `cardnum` varchar(45) ,
+  `code` varchar(45) ,
+  `nameholder` varchar(45) ,
+    date DATE,
+  PRIMARY KEY (`idpay`)
+)
