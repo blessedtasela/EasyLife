@@ -25,7 +25,7 @@ public class Main extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         init();
         //  Animator start form animatePoint to TagetPoint
-        animator = PropertySetter.createAnimator(500, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
+        animator = PropertySetter.createAnimator(700, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
         animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(180, 120), mainPanel.getTargetSize()));
         animator.addTarget(new TimingTargetAdapter() {
             @Override
@@ -118,6 +118,7 @@ public class Main extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1226, 660));
         setMinimumSize(new java.awt.Dimension(1226, 660));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(907, 470));
         setSize(new java.awt.Dimension(1226, 660));
 
         header.setBackground(new java.awt.Color(29, 101, 166));
@@ -158,7 +159,7 @@ public class Main extends javax.swing.JFrame {
         background1Layout.setHorizontalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         background1Layout.setVerticalGroup(
             background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
