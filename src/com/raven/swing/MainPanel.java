@@ -66,8 +66,8 @@ public class MainPanel extends JPanel {
     private Icon imageOld;
     private Point imageLocation;
     private Dimension imageSize;
-    private Point targetLocation = new Point(0, 0);
-    private Dimension targetSize = new Dimension(230, 230);
+    private Point targetLocation = new Point(40, 60);
+    private Dimension targetSize = new Dimension(280, 280);
 
     public MainPanel() {
         setOpaque(false);
@@ -90,24 +90,22 @@ public class MainPanel extends JPanel {
     }
 
     private Rectangle getAutoSize(Icon image, Dimension size) {
-        int w = size.width;
-        int h = size.height;
-        if (w > image.getIconWidth()) {
-            w = image.getIconWidth();
-        }
-        if (h > image.getIconHeight()) {
-            h = image.getIconHeight();
-        }
-        int iw = image.getIconWidth();
-        int ih = image.getIconHeight();
-        double xScale = (double) w / iw;
-        double yScale = (double) h / ih;
-        double scale = Math.max(xScale, yScale);
-        int width = (int) (scale * iw);
-        int height = (int) (scale * ih);
-        int x = getWidth() / 2 - (width / 2);
-        int y = getHeight() / 2 - (height / 2);
-        return new Rectangle(new Point(x, y), new Dimension(width, height));
+    int w = size.width;
+    int h = size.height;
+    int iw = image.getIconWidth();
+    int ih = image.getIconHeight();
+    
+    double xScale = (double) w / iw;
+    double yScale = (double) h / ih;
+    double scale = Math.min(xScale, yScale);
+    
+    int width = (int) (scale * iw);
+    int height = (int) (scale * ih);
+    
+    int x = (w - width) / 2;
+    int y = (h - height) / 2;
+    
+    return new Rectangle(x, y, width, height);
     }
 
     private Image toImage(Icon icon) {

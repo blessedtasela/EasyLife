@@ -29,7 +29,7 @@ public class Main extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         init();
         //  Animator start form animatePoint to TagetPoint
-        animator = PropertySetter.createAnimator(700, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
+        animator = PropertySetter.createAnimator(500, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
         animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(180, 120), mainPanel.getTargetSize()));
         animator.addTarget(new TimingTargetAdapter() {
             @Override
@@ -83,6 +83,7 @@ public class Main extends javax.swing.JFrame {
             home.addItem(new ModelItem(ID++, "Girl s 2 Piece Outfits", " 2 Piece Outfits for girls", 370, "SheIn Girl", new ImageIcon(getClass().getResource("/com/raven/image/Girl's 2 Piece Outfits.png"))));
             home.addItem(new ModelItem(ID++, "Girls Kids Fall Clothing", "simple Joys by Carter's Toddlers and Baby Girls' 5-Piece Fleece Pajama Set", 190, "Carter", new ImageIcon(getClass().getResource("/com/raven/image/Girls Kids Fall Clothing.png"))));
             home.addItem(new ModelItem(ID++, "Glasses Computer", "Oilway Blue-Light Blocking Glasses Computer Reading/Gaming/TV/Phones Glasses Fashion Anti Eyestrain UV Glasses for Women Men", 180, "Oilway", new ImageIcon(getClass().getResource("/com/raven/image/Glasses Computer.png"))));
+            home.addItem(new ModelItem(ID++, "GAP Outfit", "GAP Baby Boys Texture 2pc Set 2-piece Set Textured Long Sleeve Top and Jogger Set", 900, "GAP", new ImageIcon(getClass().getResource("/com/raven/image/GAP Outfit.png"))));
             home.addItem(new ModelItem(ID++, "Hair accessories", "755PCS Hair Holder Accessories for Women", 90, "YANRONG", new ImageIcon(getClass().getResource("/com/raven/image/Hair accessories.png"))));
             home.addItem(new ModelItem(ID++, "Glasses ", "  Glasses with Cute Nerd Frame Reading/Gaming/TV/Phones Glasses for Women Men ", 160, "MAXJULI", new ImageIcon(getClass().getResource("/com/raven/image/MAXJULI Blue Light Blocking Glasses,Computer.png"))));
             home.addItem(new ModelItem(ID++, "S22 Ultra", "Cell Phone, Factory Unlocked Android Smartphone, 128GB, 8K Camera ,Phantom Black", 8000, "SAMSUNG", new ImageIcon(getClass().getResource("/com/raven/image/S22 Ultra.png"))));
@@ -119,11 +120,11 @@ public class Main extends javax.swing.JFrame {
         mainPanel = new com.raven.swing.MainPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1226, 660));
-        setMinimumSize(new java.awt.Dimension(1226, 660));
+        setMaximumSize(new java.awt.Dimension(1250, 660));
+        setMinimumSize(new java.awt.Dimension(1250, 660));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(907, 470));
-        setSize(new java.awt.Dimension(1226, 660));
+        setPreferredSize(new java.awt.Dimension(1290, 700));
+        setSize(new java.awt.Dimension(1250, 660));
 
         header.setBackground(new java.awt.Color(29, 101, 166));
 
