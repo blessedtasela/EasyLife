@@ -11,7 +11,6 @@ CREATE TABLE customer (
   address VARCHAR(100)
 );
 
-USE easylife;
 CREATE TABLE login (
   loginId INT PRIMARY KEY AUTO_INCREMENT,
   customerId INT NOT NULL,
@@ -20,24 +19,33 @@ CREATE TABLE login (
   FOREIGN KEY (customerId) REFERENCES customer(customerId)
 );
 
-USE easylife;
+
     CREATE TABLE contact (
     contactId INT PRIMARY KEY AUTO_INCREMENT,
-    fullName varchar(50) NOT NULL,
-    email varchar(50) NOT NULL,
-    message varchar(200)
+    fullName VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    message VARCHAR(200)
+);
+
+CREATE TABLE category (
+    categoryId INT PRIMARY KEY AUTO_INCREMENT,
+    categoryName VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL
 );
 
 
-
-
 CREATE TABLE product (
-  idproduct int NOT NULL AUTO_INCREMENT,
-  item varchar(45) NOT NULL,
-  price varchar(45) DEFAULT NULL,
-  brand varchar(45) DEFAULT NULL,
-  descr varchar(500) DEFAULT NULL,
-  PRIMARY KEY (idproduct,item)
+  `productId` int(11) PRIMARY KEY AUTO_INCREMENT,
+  `productName` varchar(50) NOT NULL,
+  description TEXT NOT NULL,
+  `price` float NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `brand` varchar(20) NOT NULL,
+  `prodDate` datetime NOT NULL,
+  `discountPrice` float NOT NULL,
+  `categoryId` INT NOT NULL,
+  `image` varchar(50) NOT NULL,
+   FOREIGN KEY (categoryId) REFERENCES category(categoryId)
 );
 
 CREATE TABLE `review` (

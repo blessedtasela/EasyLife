@@ -7,3 +7,36 @@ use easylife;
 INSERT INTO login (loginId, customerId, username, password)
 VALUES (null, 1, 'john', 'admin'),
        (null, 2, 'jane', 'admin2');
+
+INSERT INTO category (categoryName, description)
+VALUES
+    ('Electronics', 'Category for electronic devices.'),
+    ('Clothing', 'Category for clothing items.'),
+    ('Accessories', 'Category for accessories.'),
+    ('Food', 'Category for food items.'),
+    ('Medicine', 'Category for medicinal products.'),
+    ('Luxury', 'Category for luxury items.'),
+    ('Books', 'Category for books.'),
+    ('Technology', 'Category for technology-related products.');
+
+Certainly! Here are some sample descriptions based on the product names you provided:
+
+
+INSERT INTO product (productName, description, price, quantity, brand, prodDate, discountPrice, categoryId, image)
+VALUES
+    ('Accessories for hair', 'Enhance your hairstyle with these trendy accessories for hair. Perfect for any occasion.', 10.99, 50, 'Lixuxx', NOW(), 0.9, 1, 'hair.png'),
+    ('Baby Boy Girl Clothes', 'Dress your little ones in style with these adorable baby boy and girl clothes. Comfortable and fashionable.', 19.99, 30, 'Amita', NOW(), 0.87, 1, 'bbcloth.png'),
+    ('Beach Bag', 'Get ready for your beach vacation with this spacious and stylish beach bag. Carry all your essentials with ease.', 9.99, 20, 'Amita', NOW(), 0.88, 2, 'beach.png'),
+    ('Cooking pot sets', 'Upgrade your kitchen with these high-quality cooking pot sets. Cook delicious meals with ease and convenience.', 29.99, 15, 'Aaron', NOW(), 0.9, 2, 'menShirt.png'),
+    ('Iphone 13 promax', 'Experience the latest technology with the iPhone 13 Pro Max. A powerful smartphone with advanced features and stunning design.', 5.99, 100, 'Apple', NOW(), 0.8, 3, 'menShirt.png'),
+    ('Samsung S22 Ultra', 'Discover the ultimate smartphone experience with the Samsung S22 Ultra. Capture stunning photos and enjoy a seamless performance.', 14.99, 40, 'Samsung', NOW(), 0.7, 3, 'menShirt.png'),
+    ('Paracetamol', 'Relieve pain and reduce fever with Paracetamol. A trusted medication for common ailments and discomforts.', 7.99, 60, 'PharmTechs', NOW(), 0.99, 4, 'bbcloth.png'),
+    ('High fibre rice', 'Promote a healthy lifestyle with high fibre rice. Packed with nutrients and fiber for a nutritious meal.', 11.99, 25, 'Dangote', NOW(), 0.8, 4, 'bbcloth.png'),
+    ('Washing Machine', 'Make laundry day a breeze with this efficient and reliable washing machine. Simplify your household chores.', 15.99, 35, 'Tecno', NOW(), 0.89, 5, 'travelBag.png'),
+    ('Big blue bic', 'Write with style using the Big Blue Bic pen. A smooth and comfortable writing experience for everyday use.', 24.99, 18, 'Google', NOW(), 0.9, 5, 'iphone14pro.png'),
+    ('Camry XX03', 'Upgrade your car audio system with the Camry XX03. Experience crystal-clear sound and immersive music.', 8.99, 75, 'Lexus', NOW(), 0.55, 6, 'capWomen.png'),
+    ('Luxurious House', 'Live in luxury with this exquisite and spacious house. Experience comfort, elegance, and a perfect living environment.', 16.99, 22, 'Apple', NOW(), 0.7, 6, 'samsung.png'),
+    ('Things Fall Apart', 'Immerse yourself in the captivating world of "Things Fall Apart" by Berliz. A thought-provoking and timeless literary masterpiece.', 12.99, 45, 'Berliz', NOW(), 0.8, 7, 'watchWomen.png'),
+    ('Codine', 'Find relief from cough and cold symptoms with Codine. A trusted medication for soothing relief and better health.', 21.99, 12, 'LiveNow', NOW(), 0.95, 7, 'watchWomen.png'),
+    ('Alexia Speaks', 'Discover the power of voice assistance with Alexia Speaks. Get answers, play music, and control your smart home with ease.', 6.99, 80, 'Google', NOW(), 0.96, 8, 'hair.png'),
+    ('Secret of Riches', 'Unlock the secrets to financial success with "Secret of Riches" by Berliz. A guide to building wealth and achieving abundance.', 18.99, 28, 'Berliz', NOW(), 0.99, 8, 'hair.png');

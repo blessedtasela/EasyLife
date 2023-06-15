@@ -3,8 +3,11 @@ package com.raven.main;
 import com.raven.event.EventItem;
 import com.raven.form.FormHome;
 import com.raven.model.ModelItem;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import easylife.EasyLifeUI.MyCart;
+import easylife.EasyLifeUI.dbConnection;
 //import easylife.EasyLifeUI.homepage;
 
 import java.awt.BorderLayout;
@@ -22,24 +25,35 @@ public class Main extends javax.swing.JFrame {
     private FormHome home;
     private Animator animator;
     private Point animatePoint;
-    private ModelItem itemSelected;;
+    private ModelItem itemSelected;
+    ;
+     private dbConnection connect;
 
     public Main() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         init();
-        //  Animator start form animatePoint to TagetPoint
-        animator = PropertySetter.createAnimator(500, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
-        animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(180, 120), mainPanel.getTargetSize()));
-        animator.addTarget(new TimingTargetAdapter() {
-            @Override
-            public void end() {
-                mainPanel.setImageOld(null);
-            }
-        });
-        animator.setResolution(0);
-        animator.setAcceleration(.5f);
-        animator.setDeceleration(.5f);
+
+        connect = new dbConnection(); // Instantiate the dbConnection class
+
+        if (connect == null) {
+            System.out.println("Error in connection. Can't connect to the database");
+        } else {
+            System.out.println("Connection successful");
+
+            //  Animator start form animatePoint to TagetPoint
+            animator = PropertySetter.createAnimator(500, mainPanel, "imageLocation", animatePoint, mainPanel.getTargetLocation());
+            animator.addTarget(new PropertySetter(mainPanel, "imageSize", new Dimension(180, 120), mainPanel.getTargetSize()));
+            animator.addTarget(new TimingTargetAdapter() {
+                @Override
+                public void end() {
+                    mainPanel.setImageOld(null);
+                }
+            });
+            animator.setResolution(0);
+            animator.setAcceleration(.5f);
+            animator.setDeceleration(.5f);
+        }
     }
 
     private void init() {
@@ -48,7 +62,7 @@ public class Main extends javax.swing.JFrame {
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(home);
         testData();
-        
+
     }
 
     private void testData() {
@@ -73,28 +87,33 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         });
-        int ID = 1;
-        for (int i = 0; i <= 5; i++) {
-            home.addItem(new ModelItem(ID++, "Accessories for hair", "10 Pcs Small Mini Pearl Claw Clips with Flower Design for Women Girls", 110, "LINXI", new ImageIcon(getClass().getResource("/com/raven/image/Accessories for hair.png"))));
-            home.addItem(new ModelItem(ID++, "Baby Boy Girl Clothes", "Simple Joys by Carter s Unisex Babies Cotton Footed Sleep and Play.", 100, "Carter", new ImageIcon(getClass().getResource("/com/raven/image/Baby Boy Girl Clothes.png"))));
-            home.addItem(new ModelItem(ID++, "Beach Bag", " beach bag for women with Handles Embroidery Large Personalized  A", 150, "BeeGreen", new ImageIcon(getClass().getResource("/com/raven/image/Beach Bag.png"))));
-            home.addItem(new ModelItem(ID++, "Cap for women", "Cap for women", 160, "UAAQV", new ImageIcon(getClass().getResource("/com/raven/image/Cap for women.png"))));
-            home.addItem(new ModelItem(ID++, "Car Charger", "Wireless Car Charger, MOKPR Auto-Clamping Car Mount 15W/10W/7.5W Fast Charging Air Vent Car Phone Mount", 120, "MOKPR", new ImageIcon(getClass().getResource("/com/raven/image/Car Charger.png"))));
-            home.addItem(new ModelItem(ID++, "Girl s 2 Piece Outfits", " 2 Piece Outfits for girls", 370, "SheIn Girl", new ImageIcon(getClass().getResource("/com/raven/image/Girl's 2 Piece Outfits.png"))));
-            home.addItem(new ModelItem(ID++, "Girls Kids Fall Clothing", "simple Joys by Carter's Toddlers and Baby Girls' 5-Piece Fleece Pajama Set", 190, "Carter", new ImageIcon(getClass().getResource("/com/raven/image/Girls Kids Fall Clothing.png"))));
-            home.addItem(new ModelItem(ID++, "Glasses Computer", "Oilway Blue-Light Blocking Glasses Computer Reading/Gaming/TV/Phones Glasses Fashion Anti Eyestrain UV Glasses for Women Men", 180, "Oilway", new ImageIcon(getClass().getResource("/com/raven/image/Glasses Computer.png"))));
-            home.addItem(new ModelItem(ID++, "GAP Outfit", "GAP Baby Boys Texture 2pc Set 2-piece Set Textured Long Sleeve Top and Jogger Set", 900, "GAP", new ImageIcon(getClass().getResource("/com/raven/image/GAP Outfit.png"))));
-            home.addItem(new ModelItem(ID++, "Hair accessories", "755PCS Hair Holder Accessories for Women", 90, "YANRONG", new ImageIcon(getClass().getResource("/com/raven/image/Hair accessories.png"))));
-            home.addItem(new ModelItem(ID++, "Glasses ", "  Glasses with Cute Nerd Frame Reading/Gaming/TV/Phones Glasses for Women Men ", 160, "MAXJULI", new ImageIcon(getClass().getResource("/com/raven/image/MAXJULI Blue Light Blocking Glasses,Computer.png"))));
-            home.addItem(new ModelItem(ID++, "S22 Ultra", "Cell Phone, Factory Unlocked Android Smartphone, 128GB, 8K Camera ,Phantom Black", 8000, "SAMSUNG", new ImageIcon(getClass().getResource("/com/raven/image/S22 Ultra.png"))));
-            home.addItem(new ModelItem(ID++, " Galaxy A23", " Phone, Factory Unlocked Android Smartphone, 128GB, 50MP Camera.", 7000, "SAMSUNG", new ImageIcon(getClass().getResource("/com/raven/image/SAMSUNG Galaxy A23.png"))));
-            home.addItem(new ModelItem(ID++, "Slim Wallet", "lim Card Holder Wallet", 160, "YESIIW", new ImageIcon(getClass().getResource("/com/raven/image/Slim Wallet.png"))));
-            home.addItem(new ModelItem(ID++, "Smart Watch for Men & Women", " Smart Watch, Fitness Tracker with 5ATM Swimming Waterproof.", 500, "SKG", new ImageIcon(getClass().getResource("/com/raven/image/Smart Watch for Men Women.png"))));
-            home.addItem(new ModelItem(ID++, "Sweatshirt for Men", "Midweight Fleece Pullover Sweatshirt with Pockets", 300, "Niceif", new ImageIcon(getClass().getResource("/com/raven/image/Sweatshirt for Men.png"))));
-            home.addItem(new ModelItem(ID++, "Travel Makeup Bag", "Travel Makeup Bag Cosmetic Bag ", 160, "Queboom", new ImageIcon(getClass().getResource("/com/raven/image/Travel Makeup Bag.png"))));
-            home.addItem(new ModelItem(ID++, "Watch for women", "Elegant Watch for women", 200, "Anne Klein", new ImageIcon(getClass().getResource("/com/raven/image/Watch for women.png"))));
-            home.addItem(new ModelItem(ID++, "hair clip", " 5 Pcs Large Pearl Hair Claw Clips White .", 100, "Adidas", new ImageIcon(getClass().getResource("/com/raven/image/hair clip.png"))));
-            home.addItem(new ModelItem(ID++, "iphone14pro", "pple iPhone 14 Pro, 128GB, Space Black - Unlocked.", 10600, "Apple", new ImageIcon(getClass().getResource("/com/raven/image/iphone14pro.png"))));
+        try {
+            try (ResultSet resultSet = dbConnection.executeQuery("SELECT p.*, c.categoryName FROM product p JOIN category c ON p.categoryId = c.categoryId")) {
+                int ID = 1;
+                System.out.println("hello");
+                while (resultSet.next()) {
+                    String productName = resultSet.getString("productName");
+                    String description = resultSet.getString("description");
+                    double price = resultSet.getDouble("price");
+                    int quantity = resultSet.getInt("quantity");
+                    String brand = resultSet.getString("brand");
+                    String categoryName = resultSet.getString("categoryName");
+                    double discountPrice = resultSet.getDouble("discountPrice");
+                    String prodDate = resultSet.getString("prodDate");
+                    String imageFilePath = resultSet.getString("image");
+                    System.out.println(productName);
+
+                    // Create an ImageIcon from the imageFilePath
+                    String imagePath = "/com/raven/image/" + imageFilePath;
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource(imagePath));
+                    // Create a new ModelItem and add it to your Swing component
+                    home.addItem(new ModelItem(ID++, productName, description, price, quantity, brand, categoryName, discountPrice, prodDate, imageIcon));
+
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error executing SQL query: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

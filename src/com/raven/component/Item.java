@@ -39,6 +39,7 @@ public class Item extends javax.swing.JPanel {
         lbItemName.setText(data.getItemName());
         lbDescription.setText(data.getDescription());
         lbBrand.setText(data.getBrandName());
+        lbCategory.setText(data.getCategory());
         DecimalFormat df = new DecimalFormat(".00 MAD");
         lbPrice.setText(df.format(data.getPrice()));
     }
@@ -66,6 +67,7 @@ public class Item extends javax.swing.JPanel {
         pic = new com.raven.swing.PictureBox();
         lbPrice = new javax.swing.JLabel();
         lbBrand = new javax.swing.JLabel();
+        lbCategory = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(275, 353));
         setMinimumSize(new java.awt.Dimension(275, 353));
@@ -86,6 +88,10 @@ public class Item extends javax.swing.JPanel {
         lbBrand.setForeground(new java.awt.Color(76, 76, 76));
         lbBrand.setText("Brand");
 
+        lbCategory.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        lbCategory.setForeground(new java.awt.Color(255, 102, 0));
+        lbCategory.setText("Category");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,6 +103,8 @@ public class Item extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(lbBrand)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbCategory)
+                        .addGap(48, 48, 48)
                         .addComponent(lbPrice))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +127,9 @@ public class Item extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbPrice)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbBrand, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbBrand, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbCategory))
                         .addGap(2, 2, 2)))
                 .addContainerGap())
         );
@@ -127,6 +137,7 @@ public class Item extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbBrand;
+    private javax.swing.JLabel lbCategory;
     private javax.swing.JLabel lbDescription;
     private javax.swing.JLabel lbItemName;
     private javax.swing.JLabel lbPrice;

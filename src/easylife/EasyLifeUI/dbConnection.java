@@ -30,4 +30,10 @@ public class dbConnection {
             return null;
         }
     }
+
+    public static ResultSet executeQuery(String query) throws SQLException {
+        Connection connection = connectDb();
+        Statement statement = connection.createStatement();
+        return statement.executeQuery(query);
+    }
 }

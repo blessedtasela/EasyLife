@@ -52,12 +52,48 @@ public class ModelItem {
         this.image = image;
     }
 
-    public ModelItem(int itemID, String itemName, String description, double price, String brandName, Icon image) {
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String cat) {
+        this.category = cat;
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int qty) {
+        this.quantity = qty;
+    }
+    
+    public double getDiscout() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ModelItem(int itemID, String itemName, String description, double price, int quantity, String brandName, String category, double discount, String date, Icon image) {
         this.itemID = itemID;
         this.itemName = itemName;
         this.description = description;
         this.price = price;
+        this.quantity = quantity;
         this.brandName = brandName;
+        this.category = category;
+        this.discount = discount;
+        this.date = date;
         this.image = image;
     }
 
@@ -68,6 +104,11 @@ public class ModelItem {
     private String itemName;
     private String description;
     private double price;
+    private int quantity;
     private String brandName;
+    private String category;
+    private double discount;
+    private String date;
     private Icon image;
+
 }
