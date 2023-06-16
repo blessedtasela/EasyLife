@@ -25,25 +25,31 @@ import javax.swing.JPanel;
  */
 public class homepage extends javax.swing.JFrame {
 
-   
+    public int userId;
 
     /**
      * Creates new form homepage
+     *
+     * @param userId the user ID to set for the homepage
      */
-
-    public homepage() {
-        initComponents();
+    public homepage(int userId) {
+        this.userId = userId;
         
-        setBackground(new Color(0,0,0,0));
+        initComponents();
+
+        setBackground(new Color(0, 0, 0, 0));
         init();
 
-        
+    }
 
+    public int getUserId() {
+        return userId;
     }
 
     private void init() {
-    winButton.initEvent(this, background1);
+        winButton.initEvent(this, background1);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -365,9 +371,9 @@ public class homepage extends javax.swing.JFrame {
     private void jButtonProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProductsActionPerformed
         // TODO add your handling code here:
         dispose();
-       Main m = new Main();
-       m.setTitle("Products");
-       m.setVisible(true);
+        Main m = new Main(userId);
+        m.setTitle("Products");
+        m.setVisible(true);
 
     }//GEN-LAST:event_jButtonProductsActionPerformed
 
@@ -393,7 +399,7 @@ public class homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4FocusGained
 
     private void jButtonCategories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategories1ActionPerformed
-          // Show a confirm dialog
+        // Show a confirm dialog
         int choice = JOptionPane.showConfirmDialog(this, "Are you sure?", "LOG OUT", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         // Check the user's choice
@@ -409,38 +415,39 @@ public class homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCategories1ActionPerformed
 
     private void jButtonCategories3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategories3ActionPerformed
-          dispose();
-       MyCart mc = new MyCart();
-       mc.setTitle("My Cart");
-       mc.setVisible(true);
+        dispose();
+        MyCart mc = new MyCart();
+        mc.setTitle("My Cart");
+        mc.setVisible(true);
     }//GEN-LAST:event_jButtonCategories3ActionPerformed
 
     private void jButtonCategories4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategories4ActionPerformed
-          dispose();
-       wishlist w = new wishlist();
-       w.setTitle("WishList");
-       w.setVisible(true);
+        dispose();
+        wishlist w = new wishlist();
+        w.setTitle("WishList");
+        w.setVisible(true);
     }//GEN-LAST:event_jButtonCategories4ActionPerformed
 
     private void jButtonCategories5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategories5ActionPerformed
-         dispose();
-       account a = new account();
-       a.setTitle("My Account");
-       a.setVisible(true);
+        dispose();
+        account a = new account();
+        a.setTitle("My Account");
+        a.setVisible(true);
     }//GEN-LAST:event_jButtonCategories5ActionPerformed
 
     private void jbAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProductActionPerformed
         // TODO add your handling code here:
-         dispose();
-       addProduct ad = new addProduct();
-       ad.setTitle("Add Product");
-       ad.setVisible(true);
+        dispose();
+        addProduct ad = new addProduct();
+        ad.setTitle("Add Product");
+        ad.setVisible(true);
     }//GEN-LAST:event_jbAddProductActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -467,9 +474,10 @@ public class homepage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            int userid = this.userid;
             public void run() {
                 // Create and display the form
-                homepage frame = new homepage();
+                homepage frame = new homepage(userid);
                 frame.setVisible(true);
 
                 // Create an ImageIcon
@@ -491,10 +499,7 @@ public class homepage extends javax.swing.JFrame {
                 JLabel profileLabel = new JLabel(resizedProfileIcon);
 
                 // Get the jPanelDashboardLogo instance from the homepage object
-             
-
                 // Set the layout manager of the jPanelDashboardLogo panel
-             
             }
         });
     }

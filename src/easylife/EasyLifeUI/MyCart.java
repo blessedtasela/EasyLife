@@ -20,19 +20,30 @@ import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
-
 public class MyCart extends javax.swing.JFrame {
+
+    private int userId;
+    private dbConnection connect;
 
     /**
      * Creates new form MyCart
      */
     public MyCart() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
         init();
+
+        connect = new dbConnection(); // Instantiate the dbConnection class
+
+        if (connect == null) {
+            System.out.println("Error in connection. Can't connect to the database");
+        } else {
+            System.out.println("Connection successful");
+        }
     }
+
     private void init() {
-    winButton.initEvent(this, background1);
+        winButton.initEvent(this, background1);
     }
 
     /**
@@ -50,10 +61,10 @@ public class MyCart extends javax.swing.JFrame {
         jlabelLoginLogo = new javax.swing.JLabel();
         winButton = new com.raven.swing.win_button.WinButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbDeleteAllProducts = new javax.swing.JButton();
+        jbDeleteProduct = new javax.swing.JButton();
+        jbShowProducts = new javax.swing.JButton();
+        jbAddProduct = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -94,70 +105,70 @@ public class MyCart extends javax.swing.JFrame {
 
         jPanel1.setOpaque(false);
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(29, 101, 166));
-        jButton3.setText("Delete All");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbDeleteAllProducts.setBackground(new java.awt.Color(204, 204, 255));
+        jbDeleteAllProducts.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbDeleteAllProducts.setForeground(new java.awt.Color(29, 101, 166));
+        jbDeleteAllProducts.setText("Delete All");
+        jbDeleteAllProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                jbDeleteAllProductsMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbDeleteAllProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbDeleteAllProductsActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(29, 101, 166));
-        jButton2.setText("Delete Product");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbDeleteProduct.setBackground(new java.awt.Color(204, 204, 255));
+        jbDeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbDeleteProduct.setForeground(new java.awt.Color(29, 101, 166));
+        jbDeleteProduct.setText("Delete Product");
+        jbDeleteProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                jbDeleteProductMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbDeleteProductActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(29, 101, 166));
-        jButton1.setText("Show Product");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbShowProducts.setBackground(new java.awt.Color(204, 204, 255));
+        jbShowProducts.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbShowProducts.setForeground(new java.awt.Color(29, 101, 166));
+        jbShowProducts.setText("Show Product");
+        jbShowProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jbShowProductsMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbShowProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbShowProductsActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(29, 101, 166));
-        jButton4.setText("Add Product");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbAddProduct.setBackground(new java.awt.Color(204, 204, 255));
+        jbAddProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbAddProduct.setForeground(new java.awt.Color(29, 101, 166));
+        jbAddProduct.setText("Add Product");
+        jbAddProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                jbAddProductMouseClicked(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbAddProductActionPerformed(evt);
             }
         });
 
         jButton5.setBackground(new java.awt.Color(204, 204, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(29, 101, 166));
-        jButton5.setText("Back");
+        jButton5.setText("To DashBoard");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -171,10 +182,10 @@ public class MyCart extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(jbDeleteProduct, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(jbDeleteAllProducts, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(jbShowProducts, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
@@ -182,13 +193,13 @@ public class MyCart extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbShowProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbDeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbDeleteAllProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -242,118 +253,139 @@ public class MyCart extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-          String con = "jdbc:mysql://localhost:3306/easylife";
-          String username = "root";
-          String password = "";
-         DefaultTableModel delete = (DefaultTableModel) jTable1.getModel();
-        int selectedRow = jTable1.getSelectedRow();
-        if (selectedRow != -1) {
-        String selected = jTable1.getValueAt(selectedRow, 0).toString();
-        delete.removeRow(selectedRow);
-        try (Connection conn = DriverManager.getConnection(con, username, password)) {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM product WHERE item = ?");
-            ps.setString(1, selected);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Product Deleted", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            Logger.getLogger(MyCart.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Failed to delete product", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    } else {
-        if (jTable1.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "Table is empty", "WARNING", JOptionPane.WARNING_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Select a product", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }             
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-          
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void jbDeleteProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbDeleteProductMouseClicked
         String con = "jdbc:mysql://localhost:3306/easylife";
         String username = "root";
         String password = "";
-        String sql = "TRUNCATE TABLE product ";
-        PreparedStatement st ;
-        try(Connection conn = DriverManager.getConnection(con, username, password)){
-            st = conn.prepareStatement(sql);
-            int rs = st.executeUpdate(sql);
-           
-            
-            conn.close();
-            
-        } catch (Exception e) {
-           
+        DefaultTableModel delete = (DefaultTableModel) jTable1.getModel();
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow != -1) {
+            String selected = jTable1.getValueAt(selectedRow, 0).toString();
+            delete.removeRow(selectedRow);
+            try (Connection conn = DriverManager.getConnection(con, username, password)) {
+                PreparedStatement ps = conn.prepareStatement("DELETE FROM product WHERE item = ?");
+                ps.setString(1, selected);
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Product Deleted", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(MyCart.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Failed to delete product", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            if (jTable1.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Table is empty", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Select a product", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        while(model.getRowCount()>0)
-       {
-        model.removeRow(0);
-        }
-        JOptionPane.showMessageDialog(this, "all products are removed", "SUCCESS", HIDE_ON_CLOSE);
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_jbDeleteProductMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeleteProductActionPerformed
+        Connection dbconn = dbConnection.connectDb();
+        DefaultTableModel delete = (DefaultTableModel) jTable1.getModel();
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow != -1) {
+            String selected = jTable1.getValueAt(selectedRow, 0).toString();
+            delete.removeRow(selectedRow);
+            String query = "DELETE FROM cart WHERE userId = 1 AND productId = 1";
+            try (PreparedStatement statement = dbconn.prepareStatement(query)) {
+                statement.setString(1, selected);
+                int deleted = statement.executeUpdate();
+                System.out.println(deleted);
+                JOptionPane.showMessageDialog(this, "Product Deleted", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(MyCart.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Failed to delete product", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            if (jTable1.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Table is empty", "WARNING", JOptionPane.WARNING_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Select a product", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jbDeleteProductActionPerformed
+
+    private void jbDeleteAllProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbDeleteAllProductsMouseClicked
+
+
+    }//GEN-LAST:event_jbDeleteAllProductsMouseClicked
+
+    private void jbDeleteAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeleteAllProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Connection dbconn = dbConnection.connectDb();
+        String query = "DELETE FROM cart WHERE userId = 1";
+        try (PreparedStatement statement = dbconn.prepareStatement(query)) {
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         String con = "jdbc:mysql://localhost:3306/easylife";
+            int deleted = statement.executeUpdate();
+            System.out.println(deleted);
+            if (deleted > 0) {
+                JOptionPane.showMessageDialog(this, "All products are removed", "SUCCESS", HIDE_ON_CLOSE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to delete products", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+    }//GEN-LAST:event_jbDeleteAllProductsActionPerformed
+
+    private void jbShowProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbShowProductsActionPerformed
+        String con = "jdbc:mysql://localhost:3306/easylife";
         String username = "root";
         String password = "";
         Statement st = null;
-        String requete = "SELECT * FROM product";
+        String requete = "SELECT p.* FROM product p INNER JOIN cart c ON p.productId = c.productId WHERE c.userId = 1";
         try (Connection conn = DriverManager.getConnection(con, username, password)) {
-                st = conn.createStatement();
-                ResultSet rs=st.executeQuery(requete);
-                while(rs.next())
-                {
-                    String user1 = rs.getString("item");
-                    String brand1 = rs.getString("price");
-                    String price1 = rs.getString("brand");
-                    String descr1 = rs.getString("descr");
-                    
-                    String dbData[] = {user1 , brand1 , price1 , descr1};
-                    DefaultTableModel data = (DefaultTableModel)jTable1.getModel();
-                    data.addRow(dbData);
-                }
-             
-           
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(requete);
+            while (rs.next()) {
+                String user1 = rs.getString("productName");
+                String brand1 = rs.getString("price");
+                String price1 = rs.getString("brand");
+                String descr1 = rs.getString("description");
+
+                String dbData[] = {user1, brand1, price1, descr1};
+                DefaultTableModel data = (DefaultTableModel) jTable1.getModel();
+                data.addRow(dbData);
+            }
+
             conn.close();
         } catch (SQLException e) {
-            System.out.println("Error inserting a row into the users table: " + e.getMessage());
+            System.out.println("Error Fetching data: " + e.getMessage());
         }
-           jButton1.setEnabled(false);
-          
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jbShowProducts.setEnabled(false);
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jbShowProductsActionPerformed
+
+    private void jbShowProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbShowProductsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jbShowProductsMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-       
-    }//GEN-LAST:event_jButton4MouseClicked
+    private void jbAddProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAddProductMouseClicked
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-          dispose();
-        Main m = new Main();
+    }//GEN-LAST:event_jbAddProductMouseClicked
+
+    private void jbAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProductActionPerformed
+        dispose();
+        homepage hp = new homepage(userId);
+        int usrId = hp.getUserId();
+        Main m = new Main(usrId);
         m.setTitle("DashBoard");
         m.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbAddProductActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         dispose();
-        homepage hp = new homepage();
+
+        homepage hp = new homepage(userId);
         hp.setTitle("Home");
         hp.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
-   
 
     /**
      * @param args the command line arguments
@@ -394,15 +426,15 @@ public class MyCart extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.swing.Background background1;
     private javax.swing.JPanel header;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbAddProduct;
+    private javax.swing.JButton jbDeleteAllProducts;
+    private javax.swing.JButton jbDeleteProduct;
+    private javax.swing.JButton jbShowProducts;
     private javax.swing.JLabel jlabelLoginLogo;
     private com.raven.swing.win_button.WinButton winButton;
     // End of variables declaration//GEN-END:variables

@@ -23,15 +23,15 @@ import javax.swing.JTextArea;
 
 public class contact extends javax.swing.JFrame {
 
+    private int userId;
     dbConnection connect;
 
     public contact() {
         initComponents();
-        
-        setBackground(new Color(0,0,0,0));
+
+        setBackground(new Color(0, 0, 0, 0));
         init();
-        
-        
+
         connect = new dbConnection();
 
         if (connect == null) {
@@ -46,13 +46,10 @@ public class contact extends javax.swing.JFrame {
         addPlaceholderStyle(taMessage);
 
     }
-    
+
     private void init() {
-    winButton.initEvent(this, background1);
+        winButton.initEvent(this, background1);
     }
-    
-    
-    
 
     //create seperate methods to add placeholder style and remove place holder style;
     public void addPlaceholderStyle(JTextField textField) {
@@ -407,7 +404,7 @@ public class contact extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         dispose();
-        homepage hm = new homepage();
+        homepage hm = new homepage(userId);
         hm.setTitle("DashBoard");
         hm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -492,7 +489,7 @@ public class contact extends javax.swing.JFrame {
                 System.out.println("Username: " + fullName);
                 System.out.println("Email Adress: " + email);
                 System.out.println("Message: " + message);
-                 System.out.println("Message sent successfully");
+                System.out.println("Message sent successfully");
                 // Display a message dialog
                 JOptionPane.showMessageDialog(contact.this,
                         "Thank you for contacting us!",
@@ -503,7 +500,7 @@ public class contact extends javax.swing.JFrame {
                 taMessage.setText("");
 
                 dispose();
-                homepage hm = new homepage();
+                homepage hm = new homepage(userId);
                 hm.setTitle("Dashboard");
                 hm.setVisible(true);
 

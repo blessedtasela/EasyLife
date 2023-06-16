@@ -8,6 +8,8 @@ import com.raven.main.Main;
 
 public class account extends javax.swing.JFrame {
 
+    private int userId;
+
     /**
      * Creates new form account
      */
@@ -94,7 +96,8 @@ public class account extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
-        homepage hp = new homepage();
+
+        homepage hp = new homepage(userId);
         hp.setTitle("Home");
         hp.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

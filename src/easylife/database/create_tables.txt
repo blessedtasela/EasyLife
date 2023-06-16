@@ -48,6 +48,14 @@ CREATE TABLE product (
    FOREIGN KEY (categoryId) REFERENCES category(categoryId)
 );
 
+CREATE TABLE cart (
+    cartId INT PRIMARY KEY AUTO_INCREMENT,
+    userId INT(50) NOT NULL,
+    productId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES login(loginId),
+    FOREIGN KEY (productId) REFERENCES product(productId)
+);
+
 CREATE TABLE `review` (
   `idrev` int NOT NULL AUTO_INCREMENT,
   `user` varchar(45) DEFAULT NULL,

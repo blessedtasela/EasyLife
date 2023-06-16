@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  * @author driou
  */
 public class review extends javax.swing.JFrame {
-
+private int userId;
     /**
      * Creates new form review
      */
@@ -282,7 +282,8 @@ public class review extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
-        homepage hp = new homepage();
+      
+        homepage hp = new homepage(userId);
         hp.setTitle("Home");
         hp.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

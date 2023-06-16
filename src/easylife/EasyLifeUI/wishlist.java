@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author blessedtasela
  */
 public class wishlist extends javax.swing.JFrame {
-
+private int userId;
    
     public wishlist() {
         initComponents();
@@ -193,7 +193,8 @@ public class wishlist extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
-        homepage hp = new homepage();
+
+        homepage hp = new homepage(userId);
         hp.setTitle("Home");
         hp.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed

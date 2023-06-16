@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import easylife.EasyLifeUI.MyCart;
 import easylife.EasyLifeUI.dbConnection;
+import easylife.EasyLifeUI.homepage;
+import easylife.EasyLifeUI.login;
 //import easylife.EasyLifeUI.homepage;
 
 import java.awt.BorderLayout;
@@ -21,7 +23,7 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 import org.jdesktop.animation.timing.interpolation.PropertySetter;
 
 public class Main extends javax.swing.JFrame {
-
+  private int userId;
     private FormHome home;
     private Animator animator;
     private Point animatePoint;
@@ -29,7 +31,7 @@ public class Main extends javax.swing.JFrame {
     ;
      private dbConnection connect;
 
-    public Main() {
+    public Main(int userId) {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         init();
@@ -57,7 +59,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void init() {
-        home = new FormHome();
+        login log = new login();
+        home = new FormHome(log);
         winButton.initEvent(this, background1);
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(home);
@@ -271,7 +274,8 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                int userId = 1;
+                new Main(userId).setVisible(true);
             }
         });
     }

@@ -19,8 +19,6 @@ VALUES
     ('Books', 'Category for books.'),
     ('Technology', 'Category for technology-related products.');
 
-Certainly! Here are some sample descriptions based on the product names you provided:
-
 
 INSERT INTO product (productName, description, price, quantity, brand, prodDate, discountPrice, categoryId, image)
 VALUES

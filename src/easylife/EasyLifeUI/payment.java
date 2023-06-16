@@ -28,14 +28,16 @@ import javax.swing.JTextField;
  */
 public class payment extends javax.swing.JFrame {
 
-    
+    private int userId;
+
     public payment() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
         init();
     }
-     private void init() {
-    winButton.initEvent(this, background1);
+
+    private void init() {
+        winButton.initEvent(this, background1);
     }
 
     @SuppressWarnings("unchecked")
@@ -228,77 +230,70 @@ public class payment extends javax.swing.JFrame {
     }//GEN-LAST:event_tfCardnumActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       dispose();
-        Main m = new Main();
+        dispose();
+        homepage hp = new homepage(userId);
+        Main m = new Main(userId);
         m.setTitle("DashBoard");
         m.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       
-        
+
         String cardnum = tfCardnum.getText();
         String code = tfCode.getText();
         String nameholder = tfCardholder.getText();
-        String date = ((JTextField)txt_Date.getDateEditor().getUiComponent()).getText();
-        
-        
+        String date = ((JTextField) txt_Date.getDateEditor().getUiComponent()).getText();
+
         String con = "jdbc:mysql://localhost:3306/easylife";
         String username = "root";
         String password = "";
         PreparedStatement st = null;
         PreparedStatement sp = null;
         PreparedStatement se = null;
-        String sql = "INSERT INTO payment (cardnum, code , nameholder, date) VALUES ('"+cardnum+"' , '"+code+"', '"+nameholder+"','"+date+"')";
+        String sql = "INSERT INTO payment (cardnum, code , nameholder, date) VALUES ('" + cardnum + "' , '" + code + "', '" + nameholder + "','" + date + "')";
         String query = "SELECT * FROM payment";
         String filename = "data.pdf";
-        if(cardnum.equals("") || code.equals("") || nameholder.equals("")|| date.equals(""))
-        {
-              JOptionPane.showMessageDialog(this, "please complete all fields!", "Error", JOptionPane.ERROR_MESSAGE);
-            
-        }
-        else
-        {
+        if (cardnum.equals("") || code.equals("") || nameholder.equals("") || date.equals("")) {
+            JOptionPane.showMessageDialog(this, "please complete all fields!", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
             HashMap<String, Object> map = new HashMap<>();
             try (Connection conn = DriverManager.getConnection(con, username, password)) {
-            st = conn.prepareStatement(sql);
-            
-            int rs=st.executeUpdate();
-            sp = conn.prepareStatement(query);
-            ResultSet rp=sp.executeQuery(query);
-            
-            conn.close();
-           
- 
-        } catch (SQLException e) {
-            System.out.println("Error inserting a row into the users table: " + e.getMessage());
-        } 
-            JOptionPane.showMessageDialog(payment.this,"Your payment has been validated!","Success",JOptionPane.INFORMATION_MESSAGE);
-                tfCardnum.setText("");
-                tfCode.setText("");
-                tfCardholder.setText("");
-                ((JTextField)txt_Date.getDateEditor().getUiComponent()).setText("");
-               
-             try(Connection conn = DriverManager.getConnection(con, username, password))
-           {
-               se = conn.prepareStatement(query);
-               ResultSet rp=se.executeQuery(query);
+                st = conn.prepareStatement(sql);
 
-               while (rp.next()) {
-                map.put(rp.getString("cardnum"), rp.getString("code") );
+                int rs = st.executeUpdate();
+                sp = conn.prepareStatement(query);
+                ResultSet rp = sp.executeQuery(query);
+
+                conn.close();
+
+            } catch (SQLException e) {
+                System.out.println("Error inserting a row into the users table: " + e.getMessage());
             }
-                
-               for (Map.Entry<String, Object> entry : map.entrySet()) {
+            JOptionPane.showMessageDialog(payment.this, "Your payment has been validated!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            tfCardnum.setText("");
+            tfCode.setText("");
+            tfCardholder.setText("");
+            ((JTextField) txt_Date.getDateEditor().getUiComponent()).setText("");
+
+            try (Connection conn = DriverManager.getConnection(con, username, password)) {
+                se = conn.prepareStatement(query);
+                ResultSet rp = se.executeQuery(query);
+
+                while (rp.next()) {
+                    map.put(rp.getString("cardnum"), rp.getString("code"));
+                }
+
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
                     System.out.println("Here is your payment data : ");
                     System.out.println("CARD: " + entry.getKey() + ", CODE: " + entry.getValue());
                 }
-           }
-           catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         }
-             
-        }
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -356,5 +351,4 @@ public class payment extends javax.swing.JFrame {
     private com.raven.swing.win_button.WinButton winButton;
     // End of variables declaration//GEN-END:variables
 
- 
 }

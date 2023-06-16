@@ -1,4 +1,3 @@
-
 package easylife.EasyLifeUI;
 
 import java.awt.Color;
@@ -10,12 +9,13 @@ import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class login extends javax.swing.JFrame {
-
+private int userId;
     dbConnection connect;
 
     public login() {
+        
         initComponents();
-         setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
         init();
         connect = new dbConnection();
 
@@ -23,32 +23,34 @@ public class login extends javax.swing.JFrame {
             System.out.println("Error in connection. Can't connect to database");
         } else {
             System.out.println("Connection successful");
-        } 
-        
-         addPlaceholderStyle(tfUsername);
-         addPlaceholderStyle(tfPassword);
+        }
+
+        addPlaceholderStyle(tfUsername);
+        addPlaceholderStyle(tfPassword);
     }
     
+     public int getUserId() {
+        return userId;
+    }
+
     private void init() {
-    winButton.initEvent(this, background1);
+        winButton.initEvent(this, background1);
     }
-    
-    public void addPlaceholderStyle(JTextField textField){
+
+    public void addPlaceholderStyle(JTextField textField) {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
         textField.setForeground(Color.gray);//font color
-        
+
     }
 
-       public void removePlaceholderStyle(JTextField textField){
-           Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN|Font.BOLD);
+    public void removePlaceholderStyle(JTextField textField) {
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.PLAIN | Font.BOLD);
         textField.setFont(font);
         textField.setForeground(Color.black);//font color
     }
-   
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -401,7 +403,7 @@ public class login extends javax.swing.JFrame {
         if (dbconn != null) {
             dispose();
             passwordRecovery pwd = new passwordRecovery();
-           //pwd.setTitle("Recover Password");
+            //pwd.setTitle("Recover Password");
             pwd.setVisible(true);
         } else {
             System.out.println("not working");
@@ -438,44 +440,44 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonContactFormActionPerformed
 
     private void tfUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusGained
-          if(tfUsername.getText().equals("Username")){
-           tfUsername.setText(null);
-           tfUsername.requestFocus();
-           //remove placeholder style
-           removePlaceholderStyle(tfUsername);
-       }
+        if (tfUsername.getText().equals("Username")) {
+            tfUsername.setText(null);
+            tfUsername.requestFocus();
+            //remove placeholder style
+            removePlaceholderStyle(tfUsername);
+        }
     }//GEN-LAST:event_tfUsernameFocusGained
 
     private void tfUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusLost
-         if(tfUsername.getText().length()==0){
-      //add placeholder style
-      addPlaceholderStyle(tfUsername);
-      tfUsername.setText("Username");
-      }
+        if (tfUsername.getText().length() == 0) {
+            //add placeholder style
+            addPlaceholderStyle(tfUsername);
+            tfUsername.setText("Username");
+        }
     }//GEN-LAST:event_tfUsernameFocusLost
 
     private void tfPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusGained
-        if(tfPassword.getText().equals("Password")){
-        tfPassword.setText(null);
-        tfPassword.requestFocus();
-        //set password character
-        tfPassword.setEchoChar('*');
-        //remove placeholder style
-        removePlaceholderStyle(tfPassword);
-        
+        if (tfPassword.getText().equals("Password")) {
+            tfPassword.setText(null);
+            tfPassword.requestFocus();
+            //set password character
+            tfPassword.setEchoChar('*');
+            //remove placeholder style
+            removePlaceholderStyle(tfPassword);
+
         }
     }//GEN-LAST:event_tfPasswordFocusGained
 
     private void tfPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusLost
-        if(tfPassword.getText().length()==0){
-        addPlaceholderStyle(tfPassword);
-        tfPassword.setText("Password");
-        tfPassword.setEchoChar('\u0000');
+        if (tfPassword.getText().length() == 0) {
+            addPlaceholderStyle(tfPassword);
+            tfPassword.setText("Password");
+            tfPassword.setEchoChar('\u0000');
         }
     }//GEN-LAST:event_tfPasswordFocusLost
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-     
+
     }//GEN-LAST:event_formFocusGained
 
     private void jPanel1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusGained
@@ -529,10 +531,12 @@ public class login extends javax.swing.JFrame {
                 ResultSet result = statement.executeQuery();
 
                 if (result.next()) {
+                    int userId = result.getInt("loginId");
+                     
                     System.out.println("Logged in");
                     JOptionPane.showMessageDialog(this, "You are successfully logged in. Click OK to continue", "Welcome", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                    homepage hm = new homepage();
+                    homepage hm = new homepage(userId);
                     hm.setTitle("Dashboard");
                     hm.setVisible(true);
 
@@ -561,5 +565,5 @@ public class login extends javax.swing.JFrame {
 
         }
     }
-    
+
 }
