@@ -437,10 +437,7 @@ public class homepage extends javax.swing.JFrame {
 
     private void jbAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddProductActionPerformed
         // TODO add your handling code here:
-        dispose();
-        addProduct ad = new addProduct();
-        ad.setTitle("Add Product");
-        ad.setVisible(true);
+       
     }//GEN-LAST:event_jbAddProductActionPerformed
 
     /**
