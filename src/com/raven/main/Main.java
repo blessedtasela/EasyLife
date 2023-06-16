@@ -65,7 +65,6 @@ public class Main extends javax.swing.JFrame {
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(home);
         testData();
-
     }
 
     private void testData() {
