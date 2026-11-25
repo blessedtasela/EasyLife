@@ -1,8 +1,13 @@
-# EASYLIFE java shopping application #
-``` Created by Blessed and Hind```
+# EasyLife
 
-EasyLife is a java-based online shopping application that aims to
+Java shopping application. Customers browse products and buy from home, or from anywhere.
 
-connect customers directly to their choice of product to make purchase
+Created by Blessed Tasela and Hind Driouche. Final-year project at SUPMTI, supervised by Mr Soufiane Hamida.
 
-from the comfort of their homes or anywhere around the world
+## Stack
+
+Java · MySQL · three-tier architecture
+
+## Run it
+
+Open the project in NetBeans and run it. The database runs on MySQL.
